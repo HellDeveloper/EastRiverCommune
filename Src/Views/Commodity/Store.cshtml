@@ -1,0 +1,22 @@
+﻿@{
+	this.Layout = "~/Views/Shared/_Commodity-Layout.cshtml";
+	this.ViewData["Title"] = "商城";
+	this.ViewData["GoBack"] = this.Url.Content("~/Main/Index");
+}
+
+@section Styles
+{
+	<link type="text/css" rel="stylesheet" href="~/Styles/Commodity-Store.css" />
+}
+
+@section Scripts
+{
+	<script type="text/javascript" src="~/Scripts/Commodity-Store.js"></script>
+}
+
+<nav id="categories">
+	@this.Html.Action("List", "Category")
+</nav>
+<article id="commodities">
+	@this.Html.Action("List", "Commodity")
+</article>

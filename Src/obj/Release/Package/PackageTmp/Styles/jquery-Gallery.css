@@ -1,0 +1,53 @@
+﻿.gallery
+{
+	width: 100%;
+	background: rgba(0, 0, 0, 1);
+	overflow: hidden;
+    position:relative;
+}
+
+.gallery > ul.pictures
+{
+	height: 100%;
+	white-space: nowrap;
+	font-size: 0px;
+	overflow-x: visible;
+	overflow-y: hidden;
+}
+
+.gallery > ul.pictures > li.picture
+{
+	display: inline-block;
+	height: 100%;
+	background-size: 100% 100%;
+	background-color: orange;
+	background-repeat: no-repeat;
+}
+
+.gallery > span.icomoon
+{
+    position: absolute;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 36px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.gallery > span.previous
+{
+    left: 2%;
+}
+
+.gallery > span.next
+{
+    right: 2%;
+}

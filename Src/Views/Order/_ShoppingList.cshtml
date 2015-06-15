@@ -1,0 +1,42 @@
+﻿@model EastRiverCommune.Entities.OrderList
+
+@{
+	this.Layout = "~/Views/Shared/_Commodity-Layout.cshtml";
+	this.ViewData["Title"] = "购物清单 ";
+	this.ViewData["GoBack"] = this.Url.Content("~/Commodity/Cart");
+	var horizontal_separator = new MvcHtmlString(@"<tr><td colspan=""4""><span class=""vertical-center""><span></span></span></td></tr>");
+}
+
+@section Styles
+{
+	<link type="text/css" rel="stylesheet" href="~/Styles/Order-ShoppingList.css" />
+}
+
+@section Scripts
+{
+	<script type="text/javascript" src="~/Scripts/Order-ShoppingList.js"></script>
+}
+
+<table id="order-item">
+	<thead>
+		<tr>
+			<th>名称</th>
+			<th>价格</th>
+			<th>数量</th>
+			<th>总价</th>
+		</tr>
+		@horizontal_separator
+	</thead>
+	<tbody>
+		@foreach (var item in this.Model.OrderItems)
+		{
+			<tr>
+				<td>@item.Commodity.Name</td>
+				<td>@item.Commodity.Price</td>
+				<td>@item.Count</td>
+				<td>@item.Total</td>
+			</tr>
+			@horizontal_separator
+		}
+	</tbody>
+</table>

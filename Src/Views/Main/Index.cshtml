@@ -1,0 +1,71 @@
+﻿@{
+    this.Layout = "~/Views/Shared/_Basic.cshtml";
+    this.ViewData["Title"] = "首页";
+}
+
+@section Styles
+{
+    <link type="text/css" rel="stylesheet" href="~/Styles/Main-Index.css" />
+}
+<article>
+    <header>
+        <a href="~/Main/Index" id="logo" title="logo">Logo</a>
+        <span class="vertical-separator"></span>
+        <span class="vertical-center">
+            <a href="tel:13215215266" class="icomoon" title="电话">&#xe942;</a>
+        </span>
+        <span class="vertical-separator"></span>
+        <span class="vertical-center">
+            <span class="icomoon" title="个人中心">&#xe604;</span>
+        </span>
+        <span class="vertical-separator"></span>
+        <span class="vertical-center">
+            <span class="icomoon" title="订单">&#xe926;</span>
+        </span>
+    </header>
+    <div id="main">
+        <div id="box">
+            <section>
+                <span class="vertical-center">
+                    <a href="#">附近预订</a>
+                </span>
+                <span></span>
+                <span class="vertical-center">
+                    <a href="~/Commodity/Store">商城</a>
+                </span>
+            </section>
+            <section></section>
+            <section>
+                <span class="vertical-center">
+                    <a href="#">附近预订</a>
+                </span>
+                <span></span>
+                <span class="vertical-center">
+                    <a href="#">活动</a>
+                </span>
+            </section>
+            <section></section>
+            <section>
+                <span class="vertical-center">
+                    <a href="#">s</a>
+                </span>
+            </section>
+        </div>
+    </div>
+    <footer>
+        <span class="vertical-center">
+            <a href="#">用户点评</a>
+        </span>
+        <span class="vertical-center">
+            <a href="#">会员卡</a>
+        </span>
+        <span class="vertical-center">
+            <a href="#">品牌介绍</a>
+        </span>
+    </footer>
+</article>
+<aside class="copynight">
+    @this.Html.Partial("~/Views/Shared/Copynight.cshtml")
+</aside>
+
+

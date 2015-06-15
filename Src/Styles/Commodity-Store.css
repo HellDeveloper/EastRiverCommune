@@ -1,0 +1,175 @@
+﻿#categories
+{
+	width: 100%;
+	height: 40px;
+	color: rgba(218, 121, 35, 0.97);
+	background-color: white;
+	z-index: 1;
+	display: -moz-inline-box !important;
+	display: -webkit-inline-box !important;
+	-moz-box-orient: horizontal;
+	-webkit-box-orient: horizontal;
+	display: -ms-inline-flex !important;
+	display: -moz-inline-flex !important;
+	display: -webkit-inline-flex !important;
+	display: inline-flex !important;
+	-ms-flex-flow: row;
+	-moz-flex-flow: row;
+	-webkit-flex-flow: row;
+	flex-flow: row;
+	/*transition: property duration timing-function delay;*/
+	-moz-transition: all 500ms ease 0s;
+	-o-transition: all 50ms ease 0s;
+	-webkit-transition: all 500ms ease 0s;
+	transition: all 500ms ease 0s;
+}
+
+#categories > div:nth-child(1)
+{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+	overflow: hidden;
+	text-align: center;
+	font-size: 0px;
+}
+
+#categories > div:nth-child(1) > .show,
+#categories > div:nth-child(1) > .category
+{
+	width: 70px;
+	height: 100%;
+	font-size: 14px;
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+	line-height: 40px;
+}
+
+#categories > div:nth-child(1) > .show.selected,
+#categories > div:nth-child(1) > .category.selected
+{
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(218, 121, 35, 0.97);
+}
+
+#categories > div:nth-child(2)
+{
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	position: relative;
+	/*overflow: hidden;*/
+}
+
+#categories > div:nth-child(2) > .icomoon
+{
+	font-size: 39px;
+}
+
+#categories > div:nth-child(2) > .number
+{
+	font-size: 12px;
+	position: absolute;
+	top: 17px;
+	right: 3px;
+	background-color: rgba(56, 121, 217, 1);
+	color: rgba(255, 255, 255, 0.9);
+	width: 20px;
+	height: 20px;
+	border-radius: 100%;
+	text-align: center;
+	line-height: 20px;
+	cursor: pointer;
+}
+
+#commodities
+{
+	text-align: center;
+	position: relative;
+	font-size: 0em;
+	z-index: 0;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+	background-color: rgba(255, 215, 170, 1);
+}
+
+/*body > div > div > div*/
+#commodities > .commodity
+{
+	text-align: center;
+	width: 172px;
+	height: 154px;
+	display: inline-block;
+	margin: 10px;
+	background-color: orange;
+	background-repeat: no-repeat;
+	-moz-background-size: 100% 100%;
+	-o-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	position: relative;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 414px)
+{
+	#commodities > .commodity
+	{
+		cursor: pointer;
+		text-align: center;
+		width: 47%;
+		height: 154px;
+		display: inline-block;
+		margin: 1%;
+		background-color: orange;
+		background-repeat: no-repeat;
+		-moz-background-size: 100% 100%;
+		-o-background-size: 100% 100%;
+		-webkit-background-size: 100% 100%;
+		background-size: 100% 100%;
+		position: relative;
+		font-size: 14px;
+	}
+}
+
+#commodities > .commodity > .checkbox
+{
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+#commodities > .commodity > .checkbox > .icomoon
+{
+	font-size: 20px;
+	line-height: 20px;
+	font-weight: normal;
+	padding: 3px;
+}
+
+#commodities > .commodity > .info
+{
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	text-align: left;
+	padding-top: 3px;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+#commodities > .commodity > .info > .name,
+#commodities > .commodity > .info > .price
+{
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

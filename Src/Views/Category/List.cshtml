@@ -1,0 +1,13 @@
+﻿@model System.Collections.Generic.List<EastRiverCommune.Entities.Category>
+<div>
+	<span data-category="" class="show selected">全部</span>
+	<span data-category="" class="category" style="display:none;">全部</span>
+	@foreach (var category in this.Model)
+	{
+		<span data-category-id="@category.ID" class="category">@category.Name</span>
+	}
+</div>
+<div id="category-count">
+	<span class="icomoon">&#xe601;</span>
+	<span class="number">@this.Model.Count()</span>
+</div>

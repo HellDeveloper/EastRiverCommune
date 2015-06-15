@@ -1,0 +1,154 @@
+﻿#order-item
+{
+	width: 100%;
+}
+
+#order-item
+{
+	width: 100%;
+	color: rgba(255, 255, 255, 1);
+	font-size: 14px;
+}
+
+#order-item tr:nth-child(2n) > td
+{
+	height: 10px;
+}
+
+#order-item tr:nth-child(2n) > td > span > span
+{
+	border-bottom: 1px solid rgba(255, 165, 0, 0.97);
+}
+
+#order-item > thead > tr:nth-child(1)
+{
+    font-size: 14px;
+	height: 20px;
+	line-height: 20px;
+}
+
+#order-item > thead > tr:nth-child(2n+1) > th:nth-child(1),
+#order-item > tbody > tr:nth-child(2n+1) > td:nth-child(1)
+{
+	text-align: left;
+}
+
+#order-item > tbody > tr:nth-child(2n+1) > td:nth-child(2)
+{
+	background-color: orange;
+	text-align: center;
+	width: 50px;
+	border-radius: 2px;
+	
+}
+
+/*#order-item > tbody > tr:nth-child(2n+1) > td:nth-child(2)
+{
+}*/
+
+.count
+{
+	
+}
+
+.count > .decrement,
+.count > .increment
+{
+}
+
+.count > input[type=text]
+{
+	display: block;
+	width: 12px;
+	-moz-box-flex: 1;
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	-moz-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+	text-align: right;
+	z-index: 2;
+}
+
+#order-item > thead > tr:nth-child(2n+1) > th:nth-child(3),
+#order-item > tbody > tr:nth-child(2n+1) > td:nth-child(3)
+{
+	text-align: right;
+	width: 50px;
+}
+
+#order-item > tbody > tr:nth-child(2n+1) > td:nth-child(4)
+{
+	text-align: center;
+	width: 36px;
+	font-size: 20px;
+}
+
+#order-item > tbody > tr > td.delete:hover
+{
+    color: orange;
+}
+
+#order-list
+{
+    margin: 0px 3px;
+}
+
+#order-list > div
+{
+    display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-flex-flow: row;
+	-ms-flex-flow: row;
+	flex-flow: row;
+	-webkit-box-lines: single;
+	-webkit-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+    height: 30px;
+}
+
+#order-list > div:nth-last-child(1),
+#order-list > div:nth-last-child(2)
+{
+    height: 42px;
+}
+
+#order-list > div > label
+{
+    width: 60px;
+    font-size: 14px;
+}
+
+#order-list > div > input,
+#order-list > div > select,
+#order-list > div > textarea
+{
+    display: block;
+    -webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+    font-size: 14px;
+} 
+
+
+#order-list > div > textarea
+{
+    height: 32px;
+} 
+
+
+
+
+
+
+
+
+
+

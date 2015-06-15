@@ -1,0 +1,26 @@
+﻿
+<!DOCTYPE html>
+
+<html @*manifest="@this.Url.Content("~/Manifest/Main.appcache")"*@>
+<head>
+    @this.Html.Partial("~/Views/Shared/_Meta.cshtml")
+    <title>@this.ViewData["Title"]</title>
+    <link type="text/css" rel="stylesheet" href="~/Styles/Fonts.css" />
+    <link type="text/css" rel="stylesheet" href="~/Styles/Basic.css" />
+    @this.RenderSection("Styles", false)
+</head>
+<body>
+    @this.RenderBody()
+    <div style="display: none;">
+        <script type="text/javascript">
+            window.API = {};
+            window.API.ApplicationPath = "@this.Request.ApplicationPath.TrimEnd('/')";@* 网站的根目录 *@
+            window.API.CommodityPictureProportion = 0.818;@* 商品图片的比例(height=width * x) *@
+        </script>
+        <script type="text/javascript" src="~/Scripts/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="~/Scripts/jquery-2.1.1-extend.js"></script>
+        <script type="text/javascript" src="~/Scripts/API.js"></script>
+        @this.RenderSection("Scripts", false)
+    </div>
+</body>
+</html>

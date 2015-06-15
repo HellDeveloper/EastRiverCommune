@@ -1,0 +1,105 @@
+﻿@{
+	this.Layout = "~/Views/Shared/_Commodity-Layout.cshtml";
+	this.ViewData["Title"] = "购物车";
+	this.ViewData["GoBack"] = this.Url.Content("~/Commodity/Store");
+}
+
+@section Styles
+{
+	<link type="text/css" rel="stylesheet" href="~/Styles/mobiscroll.css" />
+	<link type="text/css" rel="stylesheet" href="~/Styles/jquery-SelectNumber.css" />
+	<link type="text/css" rel="stylesheet" href="~/Styles/Commodity-Cart.css" />
+}
+
+@section Scripts
+{
+	<script type="text/javascript" src="~/Scripts/mobiscroll.js"></script>
+	<script type="text/javascript" src="~/Scripts/mobiscroll-datetime.js"></script>
+	<script type="text/javascript" src="~/Scripts/jquery-SelectNumber.js"></script>
+	<script type="text/javascript" src="~/Scripts/Commodity-Cart.js"></script>
+}
+
+<table id="order-item">
+	<thead>
+		<tr>
+			<th>名称</th>
+			<th>数量</th>
+			<th>总价</th>
+			<th>操作</th>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<span class="vertical-center">
+					<span></span>
+				</span>
+			</td>
+		</tr>
+	</thead>
+	<tbody></tbody>
+</table>
+
+<form id="order-list" method="post" action="~/Order/Verify">
+	<div>
+		<label for="DeliveryDate" class="vertical-justify">
+			<span>提</span>
+			<span>货</span>
+			<span>日</span>
+			<span>期</span>
+		</label>
+		<span>：</span>
+		<input type="text" required="required" maxlength="12" id="DeliveryDate" name="DeliveryDate" placeholder="请输入提货日期" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+	</div>
+	<div>
+		<label for="DeliveryManner" class="vertical-justify">
+			<span>提</span>
+			<span>货</span>
+			<span>方</span>
+			<span>式</span>
+		</label>
+		<span>：</span>
+		<select name="DeliveryManner" id="DeliveryManner">
+			<option value="到店自提">到店自提</option>
+			<option value="快递送货">快递送货</option>
+		</select>
+	</div>
+	<div>
+		<label for="Man" class="vertical-justify">
+			<span>联</span>
+			<span>系</span>
+			<span>人</span>
+		</label>
+		<span>：</span>
+		<input type="text" required="required" id="Man" name="Man" placeholder="请输入联系人" />
+	</div>
+	<div>
+		<label for="Phone" class="vertical-justify">
+			<span>电</span>
+			<span>话</span>
+		</label>
+		<span>：</span>
+		<input type="tel" required="required" id="Phone" name="Phone" placeholder="请输入联系人电话号码" />
+	</div>
+	<div style="display: none;">
+		<label for="Address" class="vertical-justify">
+			<span>收</span>
+			<span>货</span>
+			<span>地</span>
+			<span>址</span>
+		</label>
+		<span>：</span>
+		<textarea id="Address" name="Address" placeholder="请输入收货地址"></textarea>
+	</div>
+	<div>
+		<label for="Remark" class="vertical-justify">
+			<span>备</span>
+			<span>注</span>
+		</label>
+		<span>：</span>
+		<textarea id="Remark" name="Remark" placeholder="备注信息"></textarea>
+	</div>
+</form>
+
+@section Asides
+{
+	<aside class="mask"></aside>
+}

@@ -1,0 +1,52 @@
+﻿@{
+	this.Layout = "~/Views/Shared/_Commodity-Layout.cshtml";
+	this.ViewData["Title"] = "商品详细";
+	this.ViewData["GoBack"] = this.Url.Content("~/Commodity/Store");
+}
+
+@section Styles
+{
+	<link type="text/css" rel="stylesheet" href="~/Styles/jquery-Gallery.css" />
+	<link type="text/css" rel="stylesheet" href="~/Styles/Commodity-Detail.css" />
+}
+
+@section Scripts
+{
+	<script type="text/javascript">
+	</script>
+	<script type="text/javascript" src="~/Scripts/jquery-gallery.js"></script>
+	<script type="text/javascript" src="~/Scripts/Commodity-Detail.js"></script>
+}
+
+<div id="commodity">
+	<div class="gallery">
+		<ul class="pictures"></ul>
+        <span class="previous icomoon">&#xf053;</span>
+        <span class="next icomoon">&#xf054;</span>
+	</div>
+	<div class="information">
+		<div>
+			<div class="vertical-center">
+                <span class="name"></span>
+            </div>
+            <div class="vertical-center">
+                <span class="price"></span>
+            </div>
+		</div>
+		<div>
+			<span class="icomoon vertical-center">
+				<span class="decrement">&#xf068;</span>
+			</span>
+			<span class="vertical-center">
+				<span class="count">0</span>
+			</span>
+			<span class="icomoon vertical-center">
+				<span class="increment">&#xf067;</span>
+			</span>
+		</div>
+	</div>
+    <div>商品介绍：</div>
+	<div class="description"></div>
+</div>
+
+
