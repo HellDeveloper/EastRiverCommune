@@ -32,7 +32,7 @@ namespace EastRiverCommune.Controllers
 		/// <summary> 购物车
 		/// </summary>
 		/// <returns></returns>
-		public ActionResult Cart()
+        public ActionResult Defray()
 		{
 			return this.View();
 		}

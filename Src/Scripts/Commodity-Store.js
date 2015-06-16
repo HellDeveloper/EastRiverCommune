@@ -3,6 +3,8 @@
 $(function () {
 	var $sum = $("#sum");
 	var initialize = function () {
+	    var commodities = window.API.Commodities();
+	    commodities.Sync(initialize);
 		var cart = window.API.Cart();
 		$("#commodities .commodity").height($("#commodities .commodity").width() * window.API.CommodityPictureProportion);
 	    $("#commodities .commodity input[type=checkbox]").each(function (index, checkbox) {
@@ -72,7 +74,6 @@ $(function () {
     	initialize();
     });
 
-    var commodities = window.API.Commodities();
-	commodities.Sync(initialize);
+   
     //initialize();
 });

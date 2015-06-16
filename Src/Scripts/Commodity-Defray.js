@@ -1,6 +1,8 @@
 ﻿$(function () {
 	var $order_item_tbody = $("#order-item > tbody");
 	var initialize = function () {
+	    var commodities = window.API.Commodities();
+	    commodities.Sync(initialize);
 		var cart = window.API.Cart();
 		$order_item_tbody.empty();
 		cart.Each(function (i, commodity) {
