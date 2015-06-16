@@ -184,7 +184,7 @@
     <Content Include="Styles\Order-ShoppingList.css" />
     <Content Include="Styles\Commodity-Cart.css" />
     <Content Include="Styles\Commodity-Detail.css" />
-    <Content Include="Styles\Commodity-Layout.css" />
+    <Content Include="Styles\Master.css" />
     <Content Include="Styles\Commodity-Store.css" />
     <Content Include="Styles\Fonts.css" />
     <Content Include="Styles\jquery-Gallery.css" />
@@ -192,6 +192,7 @@
     <Content Include="Styles\Main-Index.css" />
     <Content Include="Styles\mobiscroll.css" />
     <Content Include="Styles\TranslateAnimation.css" />
+    <Content Include="Styles\Layout.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -216,12 +217,14 @@
     </Content>
     <None Include="Properties\PublishProfiles\default.pubxml" />
     <Content Include="Views\Commodity\List.cshtml" />
-    <Content Include="Views\Shared\_Commodity-Layout.cshtml" />
+    <Content Include="Views\Shared\_Master.cshtml" />
     <Content Include="Views\Commodity\Cart.cshtml" />
     <Content Include="Views\Commodity\Detail.cshtml" />
     <Content Include="Views\Main\Cache.cshtml" />
     <Content Include="Views\Shared\_ValidationSummary.cshtml" />
     <Content Include="Views\Order\_ShoppingList.cshtml" />
+    <Content Include="Views\Shared\_NavigateMenu.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

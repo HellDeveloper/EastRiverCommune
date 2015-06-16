@@ -6,7 +6,7 @@
 
 @section Styles
 {
-    <link type="text/css" rel="stylesheet" href="~/Styles/Commodity-Layout.css" />
+    <link type="text/css" rel="stylesheet" href="~/Styles/Master.css" />
     @this.RenderSection("Styles", false)
 }
 
@@ -36,24 +36,18 @@
         @this.RenderBody()
     </div>
     <footer>
-        <span id="sum" class="vertical-center">
-            <span></span>
-        </span>
-        <span id="pay" class="vertical-center">
-            <span>去结算</span>
-        </span>
+        @this.RenderSection("Footer", false)
     </footer>
 </article>
 <aside class="mask">
     <nav id="menu-items">
-		<a href="~/Main/Index">
-			<span class="icomoon">&#xe902;</span>
-			<span>首页</span>
-		</a>
-		<a href="~/Commodity/Store">
-			<span class="icomoon">&#xe605;</span>
-			<span>商城</span>
-		</a>
-	</nav>
+        <a href="~/Main/Index">
+            <span class="icomoon">&#xe902;</span>
+            <span>首页</span>
+        </a>
+        <a href="~/Commodity/Store">
+            <span class="icomoon">&#xe605;</span>
+            <span>商城</span>
+        </a>
+    </nav>
 </aside>
-@this.RenderSection("Asides", false)

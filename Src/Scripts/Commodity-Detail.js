@@ -13,7 +13,7 @@
 
     $("#pay").on("click", function () {
 		window.location.href = window.API.ApplicationPath + "/Commodity/Cart"
-    });
+    }).children().text("去结算");
 
     var initialize = function () {
         $gallery.height($gallery.width() * window.API.CommodityPictureProportion);

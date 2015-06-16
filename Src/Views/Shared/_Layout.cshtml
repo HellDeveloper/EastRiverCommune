@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+@section Styles
+{
+    <link type="text/css" rel="stylesheet" href="~/Styles/Layout.css" />
+    @this.RenderSection("Styles", false)
+}
+
+@section Scripts
+{
+    @this.RenderSection("Scripts", false)
+}
+
+@this.RenderBody()
+
+@section Footer
+{
+    <span id="sum" class="vertical-center">
+        <span></span>
+    </span>
+    <span id="pay" class="vertical-center">
+        <span></span>
+    </span>
+}

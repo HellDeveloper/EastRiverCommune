@@ -65,7 +65,7 @@ $(function () {
 
     $("#pay").click(function () {
     	window.location.href = window.API.ApplicationPath + "/Commodity/Cart";
-    });
+    }).find("span").text("去结算");
 
     // Adding popstate event listener to handle browser back button
     $(window).on("popstate", function () {
