@@ -29,7 +29,7 @@ namespace EastRiverCommune.Controllers
 			return this.View(list.ToList());
 		}
 
-		/// <summary> 购物车
+		/// <summary> 支付
 		/// </summary>
 		/// <returns></returns>
         public ActionResult Defray()

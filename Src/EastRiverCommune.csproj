@@ -123,9 +123,13 @@
     <Compile Include="Controllers\CommodityController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Entities\Activity.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Category.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\CategoryType.cs" />
     <Compile Include="Entities\Commodity.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
@@ -156,6 +160,7 @@
     <Compile Include="Entities\OrderList.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
+    <Content Include="Entities\Tables.sql" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -168,7 +173,7 @@
     <Content Include="Scripts\API-Cart.js" />
     <Content Include="Scripts\API-Commodity.js" />
     <Content Include="Scripts\API.js" />
-    <Content Include="Scripts\Commodity-Cart.js" />
+    <Content Include="Scripts\Commodity-Defray.js" />
     <Content Include="Scripts\Commodity-Detail.js" />
     <Content Include="Scripts\Commodity-Layout.js" />
     <Content Include="Scripts\Commodity-Store.js" />
@@ -181,8 +186,8 @@
     <Content Include="Scripts\mobiscroll.js" />
     <Content Include="Scripts\Order-ShoppingList.js" />
     <Content Include="Styles\Basic.css" />
+    <Content Include="Styles\Commodity-Defray.css" />
     <Content Include="Styles\Order-ShoppingList.css" />
-    <Content Include="Styles\Commodity-Cart.css" />
     <Content Include="Styles\Commodity-Detail.css" />
     <Content Include="Styles\Master.css" />
     <Content Include="Styles\Commodity-Store.css" />
@@ -218,13 +223,13 @@
     <None Include="Properties\PublishProfiles\default.pubxml" />
     <Content Include="Views\Commodity\List.cshtml" />
     <Content Include="Views\Shared\_Master.cshtml" />
-    <Content Include="Views\Commodity\Cart.cshtml" />
     <Content Include="Views\Commodity\Detail.cshtml" />
     <Content Include="Views\Main\Cache.cshtml" />
     <Content Include="Views\Shared\_ValidationSummary.cshtml" />
     <Content Include="Views\Order\_ShoppingList.cshtml" />
     <Content Include="Views\Shared\_NavigateMenu.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Commodity\Defray.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -254,7 +259,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Category\List.cshtml" />
+    <Content Include="Views\Category\Commodity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Commodity\Store.cshtml" />

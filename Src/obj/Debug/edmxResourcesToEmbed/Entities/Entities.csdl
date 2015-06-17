@@ -18,6 +18,11 @@
       <End Role="OrderList" EntitySet="OrderLists" />
       <End Role="OrderItem" EntitySet="OrderItems" />
     </AssociationSet>
+    <EntitySet Name="Activities" EntityType="EastRiverCommune.Entities.Activity" />
+    <AssociationSet Name="FK_Activity_Category" Association="EastRiverCommune.Entities.FK_Activity_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Activity" EntitySet="Activities" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Directory">
     <Key>
@@ -39,6 +44,8 @@
     <Property Name="WhenModify" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Commodities" Relationship="EastRiverCommune.Entities.FK_Commodity_Category" FromRole="Category" ToRole="Commodity" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Activities" Relationship="EastRiverCommune.Entities.FK_Activity_Category" FromRole="Category" ToRole="Activity" />
   </EntityType>
   <EntityType Name="Commodity">
     <Key>
@@ -119,6 +126,34 @@
       </Principal>
       <Dependent Role="OrderItem">
         <PropertyRef Name="OrderListID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Activity">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Enable" Type="Boolean" Nullable="false" />
+    <Property Name="WhenModify" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BeginDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <NavigationProperty Name="Category" Relationship="EastRiverCommune.Entities.FK_Activity_Category" FromRole="Activity" ToRole="Category" />
+  </EntityType>
+  <Association Name="FK_Activity_Category">
+    <End Type="EastRiverCommune.Entities.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="EastRiverCommune.Entities.Activity" Role="Activity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Activity">
+        <PropertyRef Name="CategoryID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

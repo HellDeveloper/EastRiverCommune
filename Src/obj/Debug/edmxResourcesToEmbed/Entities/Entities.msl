@@ -16,6 +16,7 @@
     <EntitySetMapping Name="Categories">
       <EntityTypeMapping TypeName="EastRiverCommune.Entities.Category">
         <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="WhenModify" ColumnName="WhenModify" />
           <ScalarProperty Name="Enable" ColumnName="Enable" />
@@ -61,6 +62,22 @@
           <ScalarProperty Name="Man" ColumnName="Man" />
           <ScalarProperty Name="DeliveryManner" ColumnName="DeliveryManner" />
           <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="WhenModify" ColumnName="WhenModify" />
+          <ScalarProperty Name="Enable" ColumnName="Enable" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Activities">
+      <EntityTypeMapping TypeName="EastRiverCommune.Entities.Activity">
+        <MappingFragment StoreEntitySet="Activity">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="WhenModify" ColumnName="WhenModify" />
           <ScalarProperty Name="Enable" ColumnName="Enable" />
           <ScalarProperty Name="ID" ColumnName="ID" />
