@@ -30,6 +30,5 @@ namespace EastRiverCommune.Entities
         public DbSet<Commodity> Commodities { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<OrderList> OrderLists { get; set; }
-        public DbSet<Activity> Activities { get; set; }
     }
 }

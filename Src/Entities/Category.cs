@@ -17,16 +17,13 @@ namespace EastRiverCommune.Entities
         public Category()
         {
             this.Commodities = new HashSet<Commodity>();
-            this.Activities = new HashSet<Activity>();
         }
     
         public string ID { get; set; }
         public bool Enable { get; set; }
         public System.DateTime WhenModify { get; set; }
         public string Name { get; set; }
-        public int Type { get; set; }
     
         public virtual ICollection<Commodity> Commodities { get; set; }
-        public virtual ICollection<Activity> Activities { get; set; }
     }
 }

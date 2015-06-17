@@ -5,16 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="9e680b7f197d479aba27cd1f513976ac" Name="Diagram1" ZoomLevel="71" DisplayType="true">
-        <EntityTypeShape EntityType="EastRiverCommune.Entities.Directory" Width="1.5" PointX="11.625" PointY="4.125" />
-        <EntityTypeShape EntityType="EastRiverCommune.Entities.Category" Width="1.5" PointX="0.5" PointY="3" />
-        <EntityTypeShape EntityType="EastRiverCommune.Entities.Commodity" Width="1.5" PointX="2.875" PointY="0.625" />
+        <EntityTypeShape EntityType="EastRiverCommune.Entities.Directory" Width="1.5" PointX="3.5" PointY="4.625" />
+        <EntityTypeShape EntityType="EastRiverCommune.Entities.Category" Width="1.5" PointX="0.875" PointY="1" />
+        <EntityTypeShape EntityType="EastRiverCommune.Entities.Commodity" Width="1.5" PointX="3" PointY="1.125" />
         <EntityTypeShape EntityType="EastRiverCommune.Entities.OrderItem" Width="1.5" PointX="5.375" PointY="0.625" />
         <EntityTypeShape EntityType="EastRiverCommune.Entities.OrderList" Width="1.5" PointX="8.25" PointY="0.625" />
         <AssociationConnector Association="EastRiverCommune.Entities.FK_Commodity_Category" />
         <AssociationConnector Association="EastRiverCommune.Entities.FK_OrderItem_Commodity" />
         <AssociationConnector Association="EastRiverCommune.Entities.FK_OrderItem_OrderList" />
-        <EntityTypeShape EntityType="EastRiverCommune.Entities.Activity" Width="1.5" PointX="2.875" PointY="4.5" />
-        <AssociationConnector Association="EastRiverCommune.Entities.FK_Activity_Category" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
