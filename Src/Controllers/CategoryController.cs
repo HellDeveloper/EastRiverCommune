@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EastRiverCommune.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,12 +11,12 @@ namespace EastRiverCommune.Controllers
 	/// </summary>
 	public class CategoryController : BasicController
     {
-        /// <summary> 列表
+        /// <summary> 商品类型
         /// </summary>
         /// <returns></returns>
-        public ActionResult List()
+        public ActionResult Commodity()
         {
-			var list = this.DatabaseContext.GetCategories(true);
+			var list = this.DatabaseContext.GetCategories(CategoryType.Commodity, true);
 			return this.View(list.ToList());
         }
 

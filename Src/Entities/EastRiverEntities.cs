@@ -12,11 +12,18 @@ namespace EastRiverCommune.Entities
 	{
 		/// <summary> 获取分类列表
 		/// </summary>
+        /// <param name="category_type">分类类型</param>
 		/// <param name="enable">是否启用</param>
 		/// <returns></returns>
-		public IEnumerable<Category> GetCategories(bool? enable = true)
+		public IEnumerable<Category> GetCategories(CategoryType? category_type, bool? enable = true)
 		{
 			var query = from category in this.Categories select category;
+            if (category_type.HasValue)
+            {
+                query = from category in query
+                        where category.Type == (int)category_type.Value
+                        select category;
+            }
 			if (enable.HasValue)
 			{
 				query = from category in query
