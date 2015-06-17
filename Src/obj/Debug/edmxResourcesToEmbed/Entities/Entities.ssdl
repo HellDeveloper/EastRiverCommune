@@ -11,9 +11,11 @@
     <Property Name="CategoryID" Type="nvarchar" MaxLength="25" />
     <Property Name="Content" Type="nvarchar(max)" />
     <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="BeginDate" Type="datetime" Nullable="false" />
-    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="RegistBeginDate" Type="datetime" Nullable="false" />
+    <Property Name="RegistEndDate" Type="datetime" Nullable="false" />
     <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="Days" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Category">
     <Key>

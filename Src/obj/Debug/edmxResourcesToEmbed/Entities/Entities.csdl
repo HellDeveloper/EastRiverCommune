@@ -140,9 +140,11 @@
     <Property Name="CategoryID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
     <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Address" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="BeginDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RegistBeginDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RegistEndDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Days" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Category" Relationship="EastRiverCommune.Entities.FK_Activity_Category" FromRole="Activity" ToRole="Category" />
   </EntityType>
   <Association Name="FK_Activity_Category">

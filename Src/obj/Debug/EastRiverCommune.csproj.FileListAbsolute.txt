@@ -497,6 +497,6 @@ E:\workspace\Github\EastRiverCommune\Src\bin\zh-Hans\System.Web.Razor.resources.
 E:\workspace\Github\EastRiverCommune\Src\bin\zh-Hans\System.Web.WebPages.resources.dll
 E:\workspace\Github\EastRiverCommune\Src\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 E:\workspace\Github\EastRiverCommune\Src\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
-E:\workspace\Github\EastRiverCommune\Src\obj\Debug\EastRiverCommune.csprojResolveAssemblyReference.cache
 E:\workspace\Github\EastRiverCommune\Src\obj\Debug\EastRiverCommune.dll
 E:\workspace\Github\EastRiverCommune\Src\obj\Debug\EastRiverCommune.pdb
+E:\workspace\Github\EastRiverCommune\Src\obj\Debug\EastRiverCommune.csprojResolveAssemblyReference.cache

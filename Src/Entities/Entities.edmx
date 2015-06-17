@@ -16,9 +16,11 @@
           <Property Name="CategoryID" Type="nvarchar" MaxLength="25" />
           <Property Name="Content" Type="nvarchar(max)" />
           <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="BeginDate" Type="datetime" Nullable="false" />
-          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="RegistBeginDate" Type="datetime" Nullable="false" />
+          <Property Name="RegistEndDate" Type="datetime" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="Days" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -298,9 +300,11 @@
           <Property Name="CategoryID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="BeginDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RegistBeginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RegistEndDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Days" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Category" Relationship="EastRiverCommune.Entities.FK_Activity_Category" FromRole="Activity" ToRole="Category" />
         </EntityType>
         <Association Name="FK_Activity_Category">
@@ -391,9 +395,11 @@
           <EntitySetMapping Name="Activities">
             <EntityTypeMapping TypeName="EastRiverCommune.Entities.Activity">
               <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+                <ScalarProperty Name="RegistEndDate" ColumnName="RegistEndDate" />
+                <ScalarProperty Name="RegistBeginDate" ColumnName="RegistBeginDate" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />

@@ -21,9 +21,11 @@ namespace EastRiverCommune.Entities
         public string CategoryID { get; set; }
         public string Content { get; set; }
         public string Address { get; set; }
-        public System.DateTime BeginDate { get; set; }
-        public System.DateTime EndDate { get; set; }
+        public System.DateTime RegistBeginDate { get; set; }
+        public System.DateTime RegistEndDate { get; set; }
         public decimal Price { get; set; }
+        public System.DateTime StartDate { get; set; }
+        public int Days { get; set; }
     
         public virtual Category Category { get; set; }
     }

@@ -71,9 +71,11 @@
     <EntitySetMapping Name="Activities">
       <EntityTypeMapping TypeName="EastRiverCommune.Entities.Activity">
         <MappingFragment StoreEntitySet="Activity">
+          <ScalarProperty Name="Days" ColumnName="Days" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+          <ScalarProperty Name="RegistEndDate" ColumnName="RegistEndDate" />
+          <ScalarProperty Name="RegistBeginDate" ColumnName="RegistBeginDate" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Content" ColumnName="Content" />
           <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
