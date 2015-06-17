@@ -12,21 +12,19 @@ namespace EastRiverCommune.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Category
+    public partial class Activity
     {
-        public Category()
-        {
-            this.Commodities = new HashSet<Commodity>();
-            this.Activities = new HashSet<Activity>();
-        }
-    
         public string ID { get; set; }
         public bool Enable { get; set; }
         public System.DateTime WhenModify { get; set; }
-        public string Name { get; set; }
-        public int Type { get; set; }
+        public string Title { get; set; }
+        public string CategoryID { get; set; }
+        public string Content { get; set; }
+        public string Address { get; set; }
+        public System.DateTime BeginDate { get; set; }
+        public System.DateTime EndDate { get; set; }
+        public decimal Price { get; set; }
     
-        public virtual ICollection<Commodity> Commodities { get; set; }
-        public virtual ICollection<Activity> Activities { get; set; }
+        public virtual Category Category { get; set; }
     }
 }
