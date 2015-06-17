@@ -5,6 +5,21 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="EastRiverCommune.Entities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Enable" Type="bit" Nullable="false" />
+          <Property Name="WhenModify" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryID" Type="nvarchar" MaxLength="25" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="BeginDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="ID" />
@@ -13,6 +28,7 @@
           <Property Name="Enable" Type="bit" Nullable="false" />
           <Property Name="WhenModify" Type="datetime" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Commodity">
           <Key>
@@ -66,6 +82,18 @@
           <Property Name="Address" Type="nvarchar" MaxLength="50" />
           <Property Name="Remark" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_Activity_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Commodity_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="Commodity" Type="Self.Commodity" Multiplicity="*" />
@@ -103,11 +131,16 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="EastRiverCommuneEntitiesStoreContainer">
+          <EntitySet Name="Activity" EntityType="Self.Activity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Commodity" EntityType="Self.Commodity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Directory" EntityType="Self.Directory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderItem" EntityType="Self.OrderItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderList" EntityType="Self.OrderList" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Activity_Category" Association="Self.FK_Activity_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
           <AssociationSet Name="FK_Commodity_Category" Association="Self.FK_Commodity_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Commodity" EntitySet="Commodity" />
@@ -143,6 +176,11 @@
             <End Role="OrderList" EntitySet="OrderLists" />
             <End Role="OrderItem" EntitySet="OrderItems" />
           </AssociationSet>
+          <EntitySet Name="Activities" EntityType="EastRiverCommune.Entities.Activity" />
+          <AssociationSet Name="FK_Activity_Category" Association="EastRiverCommune.Entities.FK_Activity_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Activity" EntitySet="Activities" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Directory">
           <Key>
@@ -164,6 +202,8 @@
           <Property Name="WhenModify" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Commodities" Relationship="EastRiverCommune.Entities.FK_Commodity_Category" FromRole="Category" ToRole="Commodity" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Activities" Relationship="EastRiverCommune.Entities.FK_Activity_Category" FromRole="Category" ToRole="Activity" />
         </EntityType>
         <EntityType Name="Commodity">
           <Key>
@@ -247,6 +287,34 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Enable" Type="Boolean" Nullable="false" />
+          <Property Name="WhenModify" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BeginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <NavigationProperty Name="Category" Relationship="EastRiverCommune.Entities.FK_Activity_Category" FromRole="Activity" ToRole="Category" />
+        </EntityType>
+        <Association Name="FK_Activity_Category">
+          <End Type="EastRiverCommune.Entities.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="EastRiverCommune.Entities.Activity" Role="Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -268,6 +336,7 @@
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="EastRiverCommune.Entities.Category">
               <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="WhenModify" ColumnName="WhenModify" />
                 <ScalarProperty Name="Enable" ColumnName="Enable" />
@@ -313,6 +382,22 @@
                 <ScalarProperty Name="Man" ColumnName="Man" />
                 <ScalarProperty Name="DeliveryManner" ColumnName="DeliveryManner" />
                 <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="WhenModify" ColumnName="WhenModify" />
+                <ScalarProperty Name="Enable" ColumnName="Enable" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Activities">
+            <EntityTypeMapping TypeName="EastRiverCommune.Entities.Activity">
+              <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="WhenModify" ColumnName="WhenModify" />
                 <ScalarProperty Name="Enable" ColumnName="Enable" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
