@@ -13,12 +13,12 @@ namespace EastRiverCommune
 		protected void Application_Start()
 		{
 			AreaRegistration.RegisterAllAreas();
-			//ModelBinders.Binders.DefaultBinder = new BetterModelBinder();
-
 			WebApiConfig.Register(GlobalConfiguration.Configuration);
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 		}
+
+        
 	}
 
 	public class FilterConfig

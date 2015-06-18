@@ -276,3 +276,4 @@ E:\WorkSpace\Github\EastRiverCommune\Src\bin\zh-Hans\System.Web.WebPages.Razor.r
 E:\WorkSpace\Github\EastRiverCommune\Src\obj\Release\EastRiverCommune.csprojResolveAssemblyReference.cache
 E:\WorkSpace\Github\EastRiverCommune\Src\obj\Release\EastRiverCommune.dll
 E:\WorkSpace\Github\EastRiverCommune\Src\obj\Release\EastRiverCommune.pdb
+E:\WorkSpace\Github\EastRiverCommune\Src\bin\Manifest\Main.appcache

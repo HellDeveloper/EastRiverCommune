@@ -8,7 +8,7 @@
 <#@ output extension=".appcache" #>
 <# 
 	string current_directory = Environment.CurrentDirectory + @"\Src"; 
-	string ApplicationPath = ""; 
+	string ApplicationPath = "/EastRiverCommune"; 
 	List<string> files = new List<string>(); 
 	files.AddRange(Directory.GetFiles(current_directory + @"\Fonts", "*.eot", SearchOption.AllDirectories)); 
 	files.AddRange(Directory.GetFiles(current_directory + @"\Fonts", "*.svg", SearchOption.AllDirectories)); 

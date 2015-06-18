@@ -1,4 +1,4 @@
-﻿CACHE MANIFEST
+CACHE MANIFEST
 /Fonts/icomoon.eot
 /Fonts/icomoon.svg
 /Fonts/icomoon.ttf
@@ -9,7 +9,6 @@
 /Styles/Commodity-Store.css
 /Styles/Fonts.css
 /Styles/jquery-Gallery.css
-/Styles/jquery-ScrollNumber.css
 /Styles/jquery-SelectNumber.css
 /Styles/Layout.css
 /Styles/Main-Index.css
@@ -28,13 +27,11 @@
 /Scripts/jquery-2.1.1.js
 /Scripts/jquery-2.1.1.min.js
 /Scripts/jquery-Gallery.js
-/Scripts/jquery-ScrollNumber.js
 /Scripts/jquery-SelectNumber.js
 /Scripts/jquery-unslider.js
 /Scripts/jquery-unslider.min.js
 /Scripts/Master.js
 /Scripts/mobiscroll-datetime.js
 /Scripts/mobiscroll.js
-
 NETWORK:
 *
