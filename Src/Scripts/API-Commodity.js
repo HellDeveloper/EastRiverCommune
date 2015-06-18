@@ -43,6 +43,7 @@
 						cart.Remove(obj.ID);
 					}
 				}
+                console.log(commodities)
 				window.API.Commodities(commodities);
 				window.API.Cart(cart);
 				success(result);

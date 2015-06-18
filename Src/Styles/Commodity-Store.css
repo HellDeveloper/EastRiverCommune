@@ -18,10 +18,10 @@
 	-webkit-flex-flow: row;
 	flex-flow: row;
 	/*transition: property duration timing-function delay;*/
-	-moz-transition: all 500ms ease 0s;
-	-o-transition: all 50ms ease 0s;
-	-webkit-transition: all 500ms ease 0s;
-	transition: all 500ms ease 0s;
+	-moz-transition: all 300ms ease 0s;
+	-o-transition: all 300ms ease 0s;
+	-webkit-transition: all 300ms ease 0s;
+	transition: all 300ms ease 0s;
 }
 
 #categories > div:nth-child(1)
@@ -44,6 +44,7 @@
 	text-align: center;
 	cursor: pointer;
 	line-height: 40px;
+    overflow: hidden;
 }
 
 #categories > div:nth-child(1) > .show.selected,

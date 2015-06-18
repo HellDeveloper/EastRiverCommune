@@ -67,7 +67,7 @@ namespace EastRiverCommune.Controllers
 				Name = commodity.Name,
 				Unit = commodity.Unit,
 				Price = commodity.Price,
-				Category = commodity.CategoryID,
+				CategoryID = commodity.CategoryID,
 				Enable = commodity.Enable
 			};
 			var result = EastRiverCommune.Models.Result.Create(list);

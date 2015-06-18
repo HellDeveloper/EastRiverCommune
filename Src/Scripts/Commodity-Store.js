@@ -32,12 +32,13 @@
 			array = [];
 		}
 		commodities.Each(function (index, commodity) {
-			var $commodity = $("<section></section>").addClass("commodity").data("category-id", commodity.CategoryID).data("commodity-id", commodity.ID).css({
+		    console.log(commodity);
+		    var $commodity = $("<section></section>").addClass("commodity").attr("data-commodity-id", commodity.ID).css({
 				"background-image": "url(" + window.API.ApplicationPath + "/Commodity/Image/" + commodity.ID + ")",
 				"width": commodity_size.width + "px",
 				"height": commodity_size.height + "px",
 				"margin": commodity_size.margin + "px"
-			});
+		    }).attr("data-category-id", commodity.CategoryID);
 			var $checkbox = $("<div></div>").addClass("checkbox").appendTo($commodity);
 			$("<input />").attr("id", commodity.ID).attr("name", "commodities").attr("type", "checkbox").val(commodity.ID).appendTo($checkbox);
 			$("<label></label>").addClass("icomoon").attr("for", commodity.ID).html("&#xe602;").appendTo($checkbox);
@@ -67,8 +68,8 @@
 	};
 
 	$("#categories").delegate(".category", "click", function (event) {
-		$(".category").show();
-		var $that = $(this).hide();
+		$(".category").show().width(70);
+		var $that = $(this).hide().width(0);
 		var category_id = $that.data("category-id");
 		if (category_id) {
 			$("#commodities .commodity").each(function (index, commodity) {
@@ -78,6 +79,7 @@
 				} else {
 					$commodity.hide();
 				}
+				console.log($commodity.data("category-id"))
 			});
 		} else {
 			$("#commodities .commodity").show();
