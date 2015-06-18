@@ -20,19 +20,10 @@ namespace EastRiverCommune.Controllers
             return View();
         }
 
-		/// <summary> 列表
+		/// <summary> 清单
 		/// </summary>
 		/// <returns></returns>
-		public ActionResult List()
-		{
-			var list = this.DatabaseContext.GetCommodities(true);
-			return this.View(list.ToList());
-		}
-
-		/// <summary> 支付
-		/// </summary>
-		/// <returns></returns>
-        public ActionResult Defray()
+        public ActionResult Inventory()
 		{
 			return this.View();
 		}

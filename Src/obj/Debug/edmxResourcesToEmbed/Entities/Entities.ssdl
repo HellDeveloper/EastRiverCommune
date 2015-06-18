@@ -61,7 +61,10 @@
     <Property Name="WhenModify" Type="datetime" Nullable="false" />
     <Property Name="OrderListID" Type="nvarchar" MaxLength="25" />
     <Property Name="CommodityID" Type="nvarchar" MaxLength="25" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
     <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Unit" Type="nvarchar" MaxLength="10" />
     <Property Name="Count" Type="int" Nullable="false" />
     <Property Name="Total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
   </EntityType>

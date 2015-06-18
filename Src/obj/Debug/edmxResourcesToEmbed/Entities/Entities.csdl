@@ -77,6 +77,9 @@
     <Property Name="Total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
     <NavigationProperty Name="Commodity" Relationship="EastRiverCommune.Entities.FK_OrderItem_Commodity" FromRole="OrderItem" ToRole="Commodity" />
     <NavigationProperty Name="OrderList" Relationship="EastRiverCommune.Entities.FK_OrderItem_OrderList" FromRole="OrderItem" ToRole="OrderList" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Unit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="OrderList">
     <Key>

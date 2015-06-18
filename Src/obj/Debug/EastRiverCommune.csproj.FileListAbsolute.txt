@@ -500,3 +500,7 @@ E:\workspace\Github\EastRiverCommune\Src\bin\zh-Hans\System.Web.WebPages.Razor.r
 E:\workspace\Github\EastRiverCommune\Src\obj\Debug\EastRiverCommune.dll
 E:\workspace\Github\EastRiverCommune\Src\obj\Debug\EastRiverCommune.pdb
 E:\workspace\Github\EastRiverCommune\Src\obj\Debug\EastRiverCommune.csprojResolveAssemblyReference.cache
+E:\WorkSpace\Github\EastRiverCommune\Src\bin\EntityFramework.SqlServer.dll
+E:\WorkSpace\Github\EastRiverCommune\Src\bin\EntityFramework.SqlServer.xml
+E:\WorkSpace\Github\EastRiverCommune\Src\bin\Newtonsoft.Json.xml
+E:\WorkSpace\Github\EastRiverCommune\Src\bin\zh-Hans\EntityFramework.SqlServer.resources.dll

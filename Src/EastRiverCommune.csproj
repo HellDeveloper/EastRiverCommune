@@ -39,13 +39,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -123,7 +126,6 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CommodityController.cs" />
     <Compile Include="Controllers\MainController.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Entities\Activity.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
@@ -161,6 +163,7 @@
     <Compile Include="Entities\OrderList.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
+    <Content Include="Entities\Tables.backup.sql" />
     <Content Include="Entities\Tables.sql" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -174,9 +177,9 @@
     <Content Include="Scripts\API-Cart.js" />
     <Content Include="Scripts\API-Commodity.js" />
     <Content Include="Scripts\API.js" />
-    <Content Include="Scripts\Commodity-Defray.js" />
+    <Content Include="Scripts\Commodity-Inventory.js" />
     <Content Include="Scripts\Commodity-Detail.js" />
-    <Content Include="Scripts\Commodity-Layout.js" />
+    <Content Include="Scripts\Master.js" />
     <Content Include="Scripts\Commodity-Store.js" />
     <Content Include="Scripts\jquery-2.1.1-extend.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
@@ -185,9 +188,8 @@
     <Content Include="Scripts\jquery-SelectNumber.js" />
     <Content Include="Scripts\mobiscroll-datetime.js" />
     <Content Include="Scripts\mobiscroll.js" />
-    <Content Include="Scripts\Order-ShoppingList.js" />
     <Content Include="Styles\Basic.css" />
-    <Content Include="Styles\Commodity-Defray.css" />
+    <Content Include="Styles\Commodity-Inventory.css" />
     <Content Include="Styles\Order-ShoppingList.css" />
     <Content Include="Styles\Commodity-Detail.css" />
     <Content Include="Styles\Master.css" />
@@ -222,15 +224,13 @@
       <DependentUpon>Main.tt</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\default.pubxml" />
-    <Content Include="Views\Commodity\List.cshtml" />
     <Content Include="Views\Shared\_Master.cshtml" />
     <Content Include="Views\Commodity\Detail.cshtml" />
     <Content Include="Views\Main\Cache.cshtml" />
     <Content Include="Views\Shared\_ValidationSummary.cshtml" />
-    <Content Include="Views\Order\_ShoppingList.cshtml" />
     <Content Include="Views\Shared\_NavigateMenu.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Commodity\Defray.cshtml" />
+    <Content Include="Views\Commodity\Inventory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -273,7 +273,9 @@
     <Content Include="Views\Shared\Copynight.cshtml" />
     <Content Include="Views\Shared\_Meta.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Order\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

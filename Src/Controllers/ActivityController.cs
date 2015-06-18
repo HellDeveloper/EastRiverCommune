@@ -11,8 +11,10 @@ namespace EastRiverCommune.Controllers
 	/// </summary>
     public class ActivityController : BasicController
     {
-        
-        public ActionResult Index()
+        /// <summary> 列表
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult List()
         {
             return View();
         }

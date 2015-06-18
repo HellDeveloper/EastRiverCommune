@@ -43,11 +43,16 @@
 				move();
 			}
 			var move = function (event) {
-				var offset_x = obj.end_x - obj.begin_x;
+			    if (obj.end_x == null)
+			        return null;
+			    var offset_x = obj.end_x - obj.begin_x;
+
+			    //console.log("begin_x" + obj.begin_x);
+			    //console.log("end_x" + obj.end_x);
 				//console.log("offset x:" + offset_x);
 				if (Math.abs(offset_x) > $pictures.parent().width() / 2.1) {
 					if (offset_x > 0)
-						obj.index--;
+					    obj.index--;
 					else if (offset_x < 0)
 						obj.index++;
 				}
@@ -73,6 +78,7 @@
 				event.preventDefault();
 				var touch = event.touches[0];
 				obj.begin_x = touch.pageX;
+				obj.end_x = null;
 			};
 			var touch_move = function (event) {
 				//console.log("touch move");
@@ -104,7 +110,10 @@
 			});
 
 			$next.on("click", function (event) {
+			    console.log("next");
 			    event.preventDefault();
+			    if (event.target != this)
+			        return;
 			    obj.index++;
 			    move(event);
 			    //console.log("next:" + obj.index);

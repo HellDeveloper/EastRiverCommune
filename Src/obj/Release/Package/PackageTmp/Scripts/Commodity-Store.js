@@ -2,19 +2,73 @@
 
 $(function () {
 	var $sum = $("#sum");
-	var initialize = function () {
-		var cart = window.API.Cart();
-		$("#commodities .commodity").height($("#commodities .commodity").width() * window.API.CommodityPictureProportion);
-	    $("#commodities .commodity input[type=checkbox]").each(function (index, checkbox) {
-	        if (cart[checkbox.value])
-	            checkbox.checked = true;
-	        else
-	            checkbox.checked = false;
-	    });
-	    $sum.find("span").text("总金额：￥" + cart.CalculateSum());
+	var $commodities = $("#commodities");
+	$(window).on("resize", function () {
+		var commodity_size = calculate_commodity_size();
+		$commodities.children().each(function (index, commodity) {
+			$(commodity).css({
+				"width": commodity_size.width + "px",
+				"height": commodity_size.height + "px",
+				"margin": commodity_size.margin + "px"
+			});
+		});
+	});
+
+	var calculate_commodity_size = function () {
+		var width = 190;
+		var margin = 5;
+		var count = Math.ceil(($commodities.width()) / (width + margin * 2));
+		var commodity_width = Math.floor($commodities.width() / count) - margin * 2 - Math.ceil($commodities.scrollLeft() / count);
+		console.log(commodity_width)
+		return { "width": commodity_width, "height": commodity_width * window.API.CommodityPictureProportion, "margin": margin };
 	}
 
-	$(document).delegate("#categories .category", "click", function (event) {
+	var initialize = function () {
+		var commodity_size = calculate_commodity_size();
+		var commodities = window.API.Commodities();
+		var array = [];
+		var appendToCommodities = function () {
+			for (var i = 0; i < array.length; i++) {
+				$commodities.append(array[i]);
+			}
+			array = [];
+		}
+		commodities.Each(function (index, commodity) {
+			var $commodity = $("<section></section>").addClass("commodity").data("category-id", commodity.CategoryID).data("commodity-id", commodity.ID).css({
+				"background-image": "url(" + window.API.ApplicationPath + "/Commodity/Image/" + commodity.ID + ")",
+				"width": commodity_size.width + "px",
+				"height": commodity_size.height + "px",
+				"margin": commodity_size.margin + "px"
+			});
+			var $checkbox = $("<div></div>").addClass("checkbox").appendTo($commodity);
+			$("<input />").attr("id", commodity.ID).attr("name", "commodities").attr("type", "checkbox").val(commodity.ID).appendTo($checkbox);
+			$("<label></label>").addClass("icomoon").attr("for", commodity.ID).html("&#xe602;").appendTo($checkbox);
+			var $info = $("<div></div>").addClass("info").appendTo($commodity);
+			$("<span></span>").addClass(name).text(commodity.Name).appendTo($info);
+			$("<span></span>").addClass("price").data("price", commodity.Price).data("unit", commodity.Unit).text("￥" + commodity.Price + "/" + commodity.Unit).appendTo($info);
+			array.push($commodity);
+			if (array.length > 10)
+				appendToCommodities();
+		});
+		appendToCommodities();
+		upgrade();
+		$commodities.css("height", "auto");
+	};
+
+	var upgrade = function () {
+		var cart = window.API.Cart();
+		//$("#commodities .commodity").height($("#commodities .commodity").width() * window.API.CommodityPictureProportion);
+		$("#commodities .commodity input[type=checkbox]").each(function (index, checkbox) {
+			if (cart[checkbox.value])
+				checkbox.checked = true;
+			else
+				checkbox.checked = false;
+		});
+		cart.Set$Sum();
+		//$sum.find("span").text("总金额：￥" + cart.CalculateSum());
+	};
+
+	$("#categories").delegate(".category", "click", function (event) {
 		$(".category").show();
 		var $that = $(this).hide();
 		var category_id = $that.data("category-id");
@@ -43,7 +97,7 @@ $(function () {
 			$categories.height(height);
 	});
 
-	$("#commodities .commodity input[type=checkbox]").on("click", function (event) {
+	$commodities.delegate(".commodity input[type=checkbox]", "click", function (event) {
 		event.stopPropagation();
     	var $that = $(this);
     	var $commodity = $that.closest(".commodity");
@@ -58,21 +112,19 @@ $(function () {
     	$sum.find("span").text("总金额：￥" + cart.CalculateSum());
     });
 
-	$("#commodities .commodity").on("click", function (event) {
+	$commodities.delegate(".commodity", "click", function (event) {
 		if (event.target == this)
 			window.location.href = window.API.ApplicationPath + "/Commodity/Detail/" + $(this).data("commodity-id");
 	});
 
     $("#pay").click(function () {
     	window.location.href = window.API.ApplicationPath + "/Commodity/Cart";
-    });
+    }).find("span").text("去结算");
 
     // Adding popstate event listener to handle browser back button
     $(window).on("popstate", function () {
-    	initialize();
+    	upgrade();
     });
 
-    var commodities = window.API.Commodities();
-	commodities.Sync(initialize);
-    //initialize();
+	window.API.Commodities().Sync(initialize);
 });

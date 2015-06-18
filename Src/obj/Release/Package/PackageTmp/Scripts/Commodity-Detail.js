@@ -13,9 +13,11 @@
 
     $("#pay").on("click", function () {
 		window.location.href = window.API.ApplicationPath + "/Commodity/Cart"
-    });
+    }).children().text("去结算");
 
     var initialize = function () {
+        var commodities = window.API.Commodities();
+        commodities.Sync(initialize);
         $gallery.height($gallery.width() * window.API.CommodityPictureProportion);
         $pictures.height($gallery.width() * window.API.CommodityPictureProportion);
         var commodities = window.API.Commodities();

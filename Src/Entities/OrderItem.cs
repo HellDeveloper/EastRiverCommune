@@ -22,6 +22,9 @@ namespace EastRiverCommune.Entities
         public decimal Price { get; set; }
         public int Count { get; set; }
         public decimal Total { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public string Unit { get; set; }
     
         public virtual Commodity Commodity { get; set; }
         public virtual OrderList OrderList { get; set; }

@@ -1,0 +1,53 @@
+﻿@{
+	var Title = this.ViewData["Title"];
+	this.ViewData["Title"] = "东江工社";
+    this.Layout = "~/Views/Shared/_Basic.cshtml";
+}
+
+@section Styles
+{
+    <link type="text/css" rel="stylesheet" href="~/Styles/Master.css" />
+    @this.RenderSection("Styles", false)
+}
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/Scripts/API-Commodity.js"></script>
+    <script type="text/javascript" src="~/Scripts/API-Cart.js"></script>
+    <script type="text/javascript" src="~/Scripts/Commodity-Layout.js"></script>
+    @this.RenderSection("Scripts", false)
+}
+
+<article>
+    <header>
+        <span class="vertical-center">
+            <a href="@this.ViewData["GoBack"]" class="icomoon" title="返回">&#xea38;</a>
+        </span>
+        <span class="vertical-separator"></span>
+        <span id="title" class="vertical-center">
+            <span>@Title</span>
+        </span>
+        <span class="vertical-separator"></span>
+        <span class="vertical-center">
+            <span class="icomoon" title="导航菜单" id="menu">&#xe9bd;</span>
+        </span>
+    </header>
+    <div id="center">
+        @this.RenderBody()
+    </div>
+    <footer>
+        @this.RenderSection("Footer", false)
+    </footer>
+</article>
+<aside class="mask">
+    <nav id="menu-items">
+        <a href="~/Main/Index">
+            <span class="icomoon">&#xe902;</span>
+            <span>首页</span>
+        </a>
+        <a href="~/Commodity/Store">
+            <span class="icomoon">&#xe605;</span>
+            <span>商城</span>
+        </a>
+    </nav>
+</aside>
