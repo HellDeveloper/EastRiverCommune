@@ -4,6 +4,16 @@
 	padding: 0px;
 }
 
+a:focus,
+div:focus,
+span:focus,
+input[type=reset]:focus,
+input[type=button]:focus,
+input[type=submit]:focus
+{
+    outline-style: none;
+}
+
 html, body
 {
 	width: 100%;

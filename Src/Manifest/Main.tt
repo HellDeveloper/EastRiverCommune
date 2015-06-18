@@ -1,21 +1,27 @@
 ﻿<#@ template debug="false" hostspecific="false" language="C#" #>
 <#@ assembly name="System.Core" #>
+<#@ assembly name="System.IO" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
 <#@ output extension=".appcache" #>
-<# string ApplicationPath = ""; #>
+<# 
+	string current_directory = Environment.CurrentDirectory + @"\Src"; 
+	string ApplicationPath = ""; 
+	List<string> files = new List<string>(); 
+	files.AddRange(Directory.GetFiles(current_directory + @"\Fonts", "*.eot", SearchOption.AllDirectories)); 
+	files.AddRange(Directory.GetFiles(current_directory + @"\Fonts", "*.svg", SearchOption.AllDirectories)); 
+	files.AddRange(Directory.GetFiles(current_directory + @"\Fonts", "*.ttf", SearchOption.AllDirectories)); 
+	files.AddRange(Directory.GetFiles(current_directory + @"\Fonts", "*.woff", SearchOption.AllDirectories)); 
+	files.AddRange(Directory.GetFiles(current_directory + @"\Styles", "*.css", SearchOption.AllDirectories)); 
+	files.AddRange(Directory.GetFiles(current_directory + @"\Scripts", "*.js", SearchOption.AllDirectories));
+#>
 CACHE MANIFEST
-<#=ApplicationPath#>/Fonts/icomoon.eot
-<#=ApplicationPath#>/Fonts/icomoon.svg
-<#=ApplicationPath#>/Fonts/icomoon.ttf
-<#=ApplicationPath#>/Fonts/icomoon.woff
-
-<#=ApplicationPath#>/Styles/Basic.css
-<#=ApplicationPath#>/Styles/Commodity-Cart.css
-<#=ApplicationPath#>/Styles/Commodity-Detail.css
-<#=ApplicationPath#>/Styles/Commodity-Layout.css
-<#=ApplicationPath#>/Styles/Commodity-Store.css 
+<# foreach (var file in files) #>
+<# { #>
+<#=ApplicationPath + file.Replace(current_directory, String.Empty).Replace("\\", "/")#>
+<# } #>
 
 NETWORK:
 *

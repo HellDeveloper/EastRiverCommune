@@ -190,7 +190,6 @@
     <Content Include="Scripts\mobiscroll.js" />
     <Content Include="Styles\Basic.css" />
     <Content Include="Styles\Commodity-Inventory.css" />
-    <Content Include="Styles\Order-ShoppingList.css" />
     <Content Include="Styles\Commodity-Detail.css" />
     <Content Include="Styles\Master.css" />
     <Content Include="Styles\Commodity-Store.css" />
@@ -231,6 +230,7 @@
     <Content Include="Views\Shared\_NavigateMenu.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Commodity\Inventory.cshtml" />
+    <Content Include="Views\Activity\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -273,9 +273,7 @@
     <Content Include="Views\Shared\Copynight.cshtml" />
     <Content Include="Views\Shared\_Meta.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Order\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

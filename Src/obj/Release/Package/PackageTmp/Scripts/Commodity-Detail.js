@@ -12,12 +12,11 @@
     };
 
     $("#pay").on("click", function () {
-		window.location.href = window.API.ApplicationPath + "/Commodity/Cart"
+		window.location.href = window.API.ApplicationPath + "/Commodity/Inventory"
     }).children().text("去结算");
 
     var initialize = function () {
         var commodities = window.API.Commodities();
-        commodities.Sync(initialize);
         $gallery.height($gallery.width() * window.API.CommodityPictureProportion);
         $pictures.height($gallery.width() * window.API.CommodityPictureProportion);
         var commodities = window.API.Commodities();
@@ -113,5 +112,9 @@
             }
         });
     };
-    initialize();
+
+    $(window).on("popstate", function () {
+        window.API.Commodities().Sync(initialize);
+    });
+    window.API.Commodities().Sync(initialize);
 });

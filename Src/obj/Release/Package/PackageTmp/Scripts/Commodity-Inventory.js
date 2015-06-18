@@ -1,11 +1,10 @@
 ﻿$(function () {
 	var $order_item_tbody = $("#order-item > tbody");
 	var initialize = function () {
-	    var commodities = window.API.Commodities();
-	    commodities.Sync(initialize);
 		var cart = window.API.Cart();
 		$order_item_tbody.empty();
 		cart.Each(function (i, commodity) {
+            console.log(commodity)
 			var $tr = {};
 			var $count = $("<div></div>").addClass("count").text(commodity["Count"]);
 			$tr = $("<tr></tr>").attr("id", commodity["ID"]);
@@ -111,10 +110,9 @@
 	});
 
 	$(window).on("popstate", function () {
-		initialize();
+	    window.API.Commodities().Sync(initialize);
 	});
-
-	initialize();
+	window.API.Commodities().Sync(initialize);
 });
 
 $(function () {

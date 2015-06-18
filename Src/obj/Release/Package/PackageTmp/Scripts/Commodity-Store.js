@@ -1,6 +1,4 @@
-﻿
-
-$(function () {
+﻿$(function () {
 	var $sum = $("#sum");
 	var $commodities = $("#commodities");
 	$(window).on("resize", function () {
@@ -44,7 +42,7 @@ $(function () {
 			$("<input />").attr("id", commodity.ID).attr("name", "commodities").attr("type", "checkbox").val(commodity.ID).appendTo($checkbox);
 			$("<label></label>").addClass("icomoon").attr("for", commodity.ID).html("&#xe602;").appendTo($checkbox);
 			var $info = $("<div></div>").addClass("info").appendTo($commodity);
-			$("<span></span>").addClass(name).text(commodity.Name).appendTo($info);
+			$("<span></span>").addClass("name").text(commodity.Name).appendTo($info);
 			$("<span></span>").addClass("price").data("price", commodity.Price).data("unit", commodity.Unit).text("￥" + commodity.Price + "/" + commodity.Unit).appendTo($info);
 			array.push($commodity);
 			if (array.length > 10)
@@ -118,7 +116,7 @@ $(function () {
 	});
 
     $("#pay").click(function () {
-    	window.location.href = window.API.ApplicationPath + "/Commodity/Cart";
+    	window.location.href = window.API.ApplicationPath + "/Commodity/Inventory";
     }).find("span").text("去结算");
 
     // Adding popstate event listener to handle browser back button

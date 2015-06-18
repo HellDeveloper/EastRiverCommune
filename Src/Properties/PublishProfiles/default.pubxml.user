@@ -10,7 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/EastRiverCommune.dll">
-      <publishTime>06/18/2015 09:06:01</publishTime>
+      <publishTime>06/18/2015 14:42:27</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>06/18/2015 09:01:07</publishTime>
@@ -124,7 +124,7 @@
       <publishTime>06/18/2015 08:36:06</publishTime>
     </File>
     <File Include="Manifest/Main.appcache">
-      <publishTime>06/18/2015 08:36:06</publishTime>
+      <publishTime>06/18/2015 14:30:48</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>06/18/2015 09:01:23</publishTime>
@@ -145,13 +145,16 @@
       <publishTime>06/18/2015 08:36:06</publishTime>
     </File>
     <File Include="Scripts/Commodity-Detail.js">
-      <publishTime>06/18/2015 08:36:06</publishTime>
+      <publishTime>06/18/2015 09:45:12</publishTime>
+    </File>
+    <File Include="Scripts/Commodity-Inventory.js">
+      <publishTime>06/18/2015 09:42:34</publishTime>
     </File>
     <File Include="Scripts/Commodity-Layout.js">
       <publishTime>06/18/2015 08:36:06</publishTime>
     </File>
     <File Include="Scripts/Commodity-Store.js">
-      <publishTime>06/18/2015 08:36:06</publishTime>
+      <publishTime>06/18/2015 09:48:57</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.js">
       <publishTime>05/08/2015 21:12:04</publishTime>
@@ -172,7 +175,7 @@
       <publishTime>06/18/2015 08:36:06</publishTime>
     </File>
     <File Include="Scripts/jquery-Gallery.js">
-      <publishTime>06/18/2015 08:36:06</publishTime>
+      <publishTime>06/18/2015 10:08:05</publishTime>
     </File>
     <File Include="Scripts/jquery-SelectNumber.js">
       <publishTime>06/18/2015 08:36:06</publishTime>
@@ -182,6 +185,9 @@
     </File>
     <File Include="Scripts/jquery-unslider.min.js">
       <publishTime>05/22/2015 15:32:46</publishTime>
+    </File>
+    <File Include="Scripts/Master.js">
+      <publishTime>06/18/2015 08:36:06</publishTime>
     </File>
     <File Include="Scripts/mobiscroll-datetime.js">
       <publishTime>06/18/2015 08:36:06</publishTime>
@@ -193,7 +199,7 @@
       <publishTime>06/18/2015 08:36:06</publishTime>
     </File>
     <File Include="Styles/Basic.css">
-      <publishTime>06/18/2015 08:36:06</publishTime>
+      <publishTime>06/18/2015 09:13:45</publishTime>
     </File>
     <File Include="Styles/Commodity-Cart.css">
       <publishTime>06/09/2015 21:45:43</publishTime>
@@ -202,6 +208,9 @@
       <publishTime>06/18/2015 08:36:06</publishTime>
     </File>
     <File Include="Styles/Commodity-Detail.css">
+      <publishTime>06/18/2015 08:36:06</publishTime>
+    </File>
+    <File Include="Styles/Commodity-Inventory.css">
       <publishTime>06/18/2015 08:36:06</publishTime>
     </File>
     <File Include="Styles/Commodity-Layout.css">
@@ -237,6 +246,9 @@
     <File Include="Styles/TranslateAnimation.css">
       <publishTime>06/18/2015 08:36:06</publishTime>
     </File>
+    <File Include="Views/Activity/List.cshtml">
+      <publishTime>06/18/2015 14:41:20</publishTime>
+    </File>
     <File Include="Views/Category/Commodity.cshtml">
       <publishTime>06/18/2015 08:36:06</publishTime>
     </File>
@@ -250,7 +262,10 @@
       <publishTime>06/18/2015 08:36:06</publishTime>
     </File>
     <File Include="Views/Commodity/Detail.cshtml">
-      <publishTime>06/18/2015 08:36:06</publishTime>
+      <publishTime>06/18/2015 14:38:31</publishTime>
+    </File>
+    <File Include="Views/Commodity/Inventory.cshtml">
+      <publishTime>06/18/2015 09:31:47</publishTime>
     </File>
     <File Include="Views/Commodity/Layout.cshtml">
       <publishTime>05/26/2015 14:29:06</publishTime>
@@ -265,7 +280,7 @@
       <publishTime>06/18/2015 08:36:06</publishTime>
     </File>
     <File Include="Views/Main/Index.cshtml">
-      <publishTime>06/18/2015 08:36:06</publishTime>
+      <publishTime>06/18/2015 14:40:19</publishTime>
     </File>
     <File Include="Views/Order/Verify.cshtml">
       <publishTime>06/10/2015 01:11:31</publishTime>
@@ -286,7 +301,7 @@
       <publishTime>05/26/2015 10:22:34</publishTime>
     </File>
     <File Include="Views/Shared/_Basic.cshtml">
-      <publishTime>06/18/2015 08:36:06</publishTime>
+      <publishTime>06/18/2015 14:26:16</publishTime>
     </File>
     <File Include="Views/Shared/_Commodity-Layout.cshtml">
       <publishTime>06/10/2015 00:31:08</publishTime>
@@ -295,7 +310,7 @@
       <publishTime>06/18/2015 08:36:06</publishTime>
     </File>
     <File Include="Views/Shared/_Master.cshtml">
-      <publishTime>06/18/2015 08:36:06</publishTime>
+      <publishTime>06/18/2015 09:47:07</publishTime>
     </File>
     <File Include="Views/Shared/_Meta.cshtml">
       <publishTime>06/18/2015 08:36:06</publishTime>
