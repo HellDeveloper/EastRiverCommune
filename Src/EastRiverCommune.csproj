@@ -126,6 +126,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CommodityController.cs" />
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Entities\Activity.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
@@ -232,6 +233,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Commodity\Inventory.cshtml" />
     <Content Include="Views\Activity\List.cshtml" />
+    <Content Include="Views\Test\BaiduMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

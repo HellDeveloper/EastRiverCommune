@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "BaiduMap";
+    this.ViewData["GoBack"] = this.Url.Content("~/Main/Index");
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+@section Styles
+{
+
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+        var default_coords = {
+            "latitude": 113.75,
+            "longitude": 23.04
+        };
+        var map = new BMap.Map("l-map");
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var coords = position.coords;
+                map.centerAndZoom(new BMap.Point(coords.latitude, coords.longitude), 14);
+            }, function (error) {
+                switch (error.code) {
+                    case error.TIMEOUT:
+                        alert("获取位置信息超时！");
+                        break;
+                    case error.PERMISSION_DENIED:
+                        alert("您设置了阻止该页面获取位置信息！");
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        alert("浏览器无法确定您的位置！");
+                        break;
+                    default:
+                        alert("获取位置信息出错！");
+                        break;
+                }
+                map.centerAndZoom(new BMap.Point(default_coords.latitude, default_coords.longitude), 14);
+            });
+        } else {
+            map.centerAndZoom(new BMap.Point(default_coords.latitude, default_coords.longitude), 14);
+        }
+    </script>
+}
+
+<div id="baidu-map">
+
+</div>
