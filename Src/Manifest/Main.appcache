@@ -5,7 +5,7 @@ CACHE MANIFEST
 /Fonts/icomoon.woff
 /Styles/Basic.css
 /Styles/Commodity-Detail.css
-/Styles/Commodity-Inventory.css
+/Styles/Commodity-ShoppingList.css
 /Styles/Commodity-Store.css
 /Styles/Fonts.css
 /Styles/jquery-Gallery.css
@@ -19,7 +19,7 @@ CACHE MANIFEST
 /Scripts/API-Commodity.js
 /Scripts/API.js
 /Scripts/Commodity-Detail.js
-/Scripts/Commodity-Inventory.js
+/Scripts/Commodity-ShoppingList.js
 /Scripts/Commodity-Store.js
 /Scripts/jquery-1.11.2.js
 /Scripts/jquery-1.11.2.min.js

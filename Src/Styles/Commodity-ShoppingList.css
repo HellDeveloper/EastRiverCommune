@@ -112,6 +112,7 @@
 	-webkit-align-items: center;
 	align-items: center;
     height: 30px;
+	margin: 15px 0px;
 }
 
 #order-list > div:nth-last-child(1),

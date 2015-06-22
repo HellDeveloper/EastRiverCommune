@@ -27,9 +27,11 @@ namespace EastRiverCommune.Entities.Metadata
 		[Required]
 		public string DeliveryManner { get; set; }
 
+		[DisplayName("联系人")]
 		[Required]
 		public string Man { get; set; }
 
+		[DisplayName("联系电话")]
 		[Required]
 		//[DataType(DataType.PhoneNumber)]
 		public string Phone { get; set; }

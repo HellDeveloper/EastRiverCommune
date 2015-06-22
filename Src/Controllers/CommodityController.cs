@@ -21,12 +21,24 @@ namespace EastRiverCommune.Controllers
             return View();
         }
 
-		/// <summary> 清单
+		/// <summary> 购物清单
 		/// </summary>
 		/// <returns></returns>
+		[HttpGet]
         public ActionResult ShoppingList()
 		{
 			return this.View(new OrderList());
+		}
+
+		/// <summary> 购物清单
+		/// </summary>
+		/// <param name="order_list"></param>
+		/// <returns></returns>
+		[HttpPost]
+		public ActionResult ShoppingList(OrderList order_list)
+		{
+			
+			return this.View(order_list);
 		}
 
         /// <summary> 详情

@@ -1,6 +1,6 @@
 ﻿@model EastRiverCommune.Entities.OrderList
 @{
-    this.Layout = "~/Views/Shared/_Layout.cshtml";
+	this.Layout = "~/Views/Shared/_Layout.cshtml";
 	this.ViewData["Title"] = "购物单";
 	this.ViewData["GoBack"] = this.Url.Content("~/Commodity/Store");
 }
@@ -9,7 +9,8 @@
 {
 	<link type="text/css" rel="stylesheet" href="~/Styles/mobiscroll.css" />
 	<link type="text/css" rel="stylesheet" href="~/Styles/jquery-SelectNumber.css" />
-	<link type="text/css" rel="stylesheet" href="~/Styles/Commodity-Inventory.css" />
+	<link type="text/css" href="~/Styles/jquery-tiptool.css" rel="stylesheet" />
+	<link type="text/css" rel="stylesheet" href="~/Styles/Commodity-ShoppingList.css" />
 }
 
 @section Scripts
@@ -17,8 +18,9 @@
 	<script type="text/javascript" src="~/Scripts/mobiscroll.js"></script>
 	<script type="text/javascript" src="~/Scripts/mobiscroll-datetime.js"></script>
 	<script type="text/javascript" src="~/Scripts/jquery-SelectNumber.js"></script>
+	<script type="text/javascript" src="~/Scripts/jquery-tiptool.js"></script>
 	<script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>
-	<script type="text/javascript" src="~/Scripts/Commodity-Inventory.js"></script>
+	<script type="text/javascript" src="~/Scripts/Commodity-ShoppingList.js"></script>
 }
 
 <table id="order-item">
@@ -40,7 +42,7 @@
 	<tbody></tbody>
 </table>
 
-<form id="order-list" method="post" action="~/Order/Verify">
+<form id="order-list" method="post">
 	<div>
 		<label for="DeliveryDate" class="vertical-justify">
 			<span>提</span>

@@ -1,0 +1,87 @@
+/* tiptool Bubble Styles */
+.tiptool_bubble, .tiptool_bubble > .tiptool_arrow
+{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.tiptool_bubble
+{
+	position: absolute;
+	text-align: center;
+	border-radius: 6px;
+	z-index: 999;
+	padding: 5px;
+}
+
+.tiptool_style
+{
+	
+}
+
+.tiptool_content
+{
+	width: 90%;
+	float: left;
+	word-wrap: break-word;
+}
+
+.tiptool_close
+{
+	float: right;
+}
+
+/* tiptool Bubble Div */
+.tiptool_bubble > .tiptool_arrow
+{
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 10px solid;
+	pointer-events: none;
+}
+
+.tiptool_bubble.top > .tiptool_arrow
+{
+	border-top-color: #000;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	border-bottom-color: transparent;
+	top: 100%;
+	left: 50%;
+	margin-left: -8px;
+}
+
+.tiptool_bubble.bottom > .tiptool_arrow
+{
+	border-bottom-color: #000;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	border-top-color: transparent;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -8px;
+}
+
+.tiptool_bubble.left > .tiptool_arrow
+{
+	border-left-color: #000;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+	border-right-color: transparent;
+	top: 50%;
+	left: 100%;
+	margin-top: -8px;
+}
+
+.tiptool_bubble.right > .tiptool_arrow
+{
+	border-right-color: #000;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+	top: 50%;
+	right: 100%;
+	margin-top: -8px;
+}

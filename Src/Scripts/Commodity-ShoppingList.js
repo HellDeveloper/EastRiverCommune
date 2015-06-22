@@ -43,11 +43,30 @@
 			});
 		});
 		$("#pay > span").text("确定支付");
+
+		var validator = $("form").validate({
+			errorPlacement: function ($error, $element) {
+				$error.appendTo($element);
+				if ($element.tiptool) {
+					$element.tiptool({
+						useTitle: false,
+						position: "bottom"
+					});
+					$element.tiptool("update", "content", $error.text());
+					$element.tiptool("show");
+					$error.css("display", "none");
+				} else {
+					
+				}
+			}
+		});
+
 		$("#pay").on("click", function () {
+			if (!validator.form())
+				return;
 			var cart = window.API.Cart();
-			var $form = cart.CreateForm(window.API.ApplicationPath + "/Order/Verify");
+			var $form = cart.CreateForm(window.API.ApplicationPath + "/Commodity/ShoppingList");
 			$("#order-list").find("[type=text], [type=tel], select, textarea").clone().appendTo($form);
-			console.log($form);
 			$form.appendTo($("body")).submit();
 			//var form = $("#order-list").SerializeObject();
 			//form["OrderItems"] = [];
@@ -112,6 +131,8 @@
 	$(window).on("popstate", function () {
 	    window.API.Commodities().Sync(initialize);
 	});
+
+
 	window.API.Commodities().Sync(initialize);
 });
 
