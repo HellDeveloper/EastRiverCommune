@@ -198,6 +198,11 @@
     <Content Include="Scripts\jquery-SelectNumber.js" />
     <Content Include="Scripts\mobiscroll-datetime.js" />
     <Content Include="Scripts\mobiscroll.js" />
+    <Content Include="Scripts\jquery-tiptool.js" />
+    <Content Include="Scripts\tipso\tipso.css" />
+    <Content Include="Scripts\tipso\tipso.js" />
+    <Content Include="Scripts\tipso\tipso.min.css" />
+    <Content Include="Scripts\tipso\tipso.min.js" />
     <Content Include="Styles\Basic.css" />
     <Content Include="Styles\Commodity-ShoppingList.css" />
     <Content Include="Styles\Commodity-Detail.css" />
@@ -208,6 +213,7 @@
     <Content Include="Styles\jquery-SelectNumber.css" />
     <Content Include="Styles\Main-Index.css" />
     <Content Include="Styles\mobiscroll.css" />
+    <Content Include="Styles\jquery-tiptool.css" />
     <Content Include="Styles\TranslateAnimation.css" />
     <Content Include="Styles\Layout.css" />
     <Content Include="Web.config" />

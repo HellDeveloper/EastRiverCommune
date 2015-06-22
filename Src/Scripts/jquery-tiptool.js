@@ -120,7 +120,6 @@
 			var tiptool_bubble = this.tooltip(),
 			  obj = this,
 			  $win = this.win;
-
 			if (obj.mode == 'hide') {
 				if ($.isFunction(obj.settings.onBeforeShow)) {
 					obj.settings.onBeforeShow($(this));

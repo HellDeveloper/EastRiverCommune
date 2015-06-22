@@ -1,0 +1,4 @@
+﻿// Core		核心
+// Data		数据
+// Generic	集合
+// WebForm	Web窗体
