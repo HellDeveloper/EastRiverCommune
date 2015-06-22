@@ -1,7 +1,7 @@
-﻿using System;
+﻿using EastRiverCommune.Extension;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -18,7 +18,10 @@ namespace EastRiverCommune.Entities.Metadata
 {
 	public class _OrderList
 	{
-		[DataType(DataType.Date)]
+		//[DataType(DataType.Date)]
+		[Required]
+		[MinLength(10)]
+		[MaxLength(10)]
 		public DateTime DeliveryDate { get; set; }
 
 		[Required]
@@ -28,7 +31,7 @@ namespace EastRiverCommune.Entities.Metadata
 		public string Man { get; set; }
 
 		[Required]
-		[DataType(DataType.PhoneNumber)]
+		//[DataType(DataType.PhoneNumber)]
 		public string Phone { get; set; }
 
 		[Required]

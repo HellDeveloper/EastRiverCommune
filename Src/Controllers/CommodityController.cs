@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EastRiverCommune.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,9 +24,9 @@ namespace EastRiverCommune.Controllers
 		/// <summary> 清单
 		/// </summary>
 		/// <returns></returns>
-        public ActionResult Inventory()
+        public ActionResult ShoppingList()
 		{
-			return this.View();
+			return this.View(new OrderList());
 		}
 
         /// <summary> 详情

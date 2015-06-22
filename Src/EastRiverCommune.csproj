@@ -48,7 +48,9 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -166,6 +168,11 @@
     </Compile>
     <Content Include="Entities\Tables.backup.sql" />
     <Content Include="Entities\Tables.sql" />
+    <Compile Include="Extension\InputHelper.cs" />
+    <Compile Include="Extension\MaxLengthAttribute.cs" />
+    <Compile Include="Extension\MinLengthAttribute.cs" />
+    <Compile Include="Extension\RequiredAttribute.cs" />
+    <Compile Include="Extension\ValidationAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -178,8 +185,10 @@
     <Content Include="Scripts\API-Cart.js" />
     <Content Include="Scripts\API-Commodity.js" />
     <Content Include="Scripts\API.js" />
-    <Content Include="Scripts\Commodity-Inventory.js" />
+    <Content Include="Scripts\Commodity-ShoppingList.js" />
     <Content Include="Scripts\Commodity-Detail.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\Master.js" />
     <Content Include="Scripts\Commodity-Store.js" />
     <Content Include="Scripts\jquery-2.1.1-extend.js" />
@@ -190,7 +199,7 @@
     <Content Include="Scripts\mobiscroll-datetime.js" />
     <Content Include="Scripts\mobiscroll.js" />
     <Content Include="Styles\Basic.css" />
-    <Content Include="Styles\Commodity-Inventory.css" />
+    <Content Include="Styles\Commodity-ShoppingList.css" />
     <Content Include="Styles\Commodity-Detail.css" />
     <Content Include="Styles\Master.css" />
     <Content Include="Styles\Commodity-Store.css" />
@@ -231,7 +240,7 @@
     <Content Include="Views\Shared\_ValidationSummary.cshtml" />
     <Content Include="Views\Shared\_NavigateMenu.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Commodity\Inventory.cshtml" />
+    <Content Include="Views\Commodity\ShoppingList.cshtml" />
     <Content Include="Views\Activity\List.cshtml" />
     <Content Include="Views\Test\BaiduMap.cshtml" />
   </ItemGroup>

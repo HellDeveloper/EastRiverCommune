@@ -118,7 +118,7 @@
 	});
 
     $("#pay").click(function () {
-    	window.location.href = window.API.ApplicationPath + "/Commodity/Inventory";
+    	window.location.href = window.API.ApplicationPath + "/Commodity/ShoppingList";
     }).find("span").text("去结算");
 
     // Adding popstate event listener to handle browser back button
