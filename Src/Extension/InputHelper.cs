@@ -16,6 +16,7 @@ namespace EastRiverCommune.Extension
 {
 	public static class InputHelper
 	{
+		/*
 		#region Methods
 		internal static string EvalString(HtmlHelper helper, string key)
 		{
@@ -39,7 +40,7 @@ namespace EastRiverCommune.Extension
 			{
 				if (modelState.Value != null)
 				{
-					return modelState.Value.ConvertTo(destinationType, null /* culture */);
+					return modelState.Value.ConvertTo(destinationType, null);
 				}
 			}
 			return null;
@@ -378,7 +379,7 @@ namespace EastRiverCommune.Extension
 									 metadata.Model,
 									 ExpressionHelper.GetExpressionText(expression),
 									 value,
-									 null /* isChecked */,
+									 null,
 									 htmlAttributes);
 		}
 
@@ -521,7 +522,7 @@ namespace EastRiverCommune.Extension
 							   htmlAttributes: htmlAttributes);
 		}
 		#endregion
-
+		
 		// Helper methods
 
 		private static MvcHtmlString _InputHelper(HtmlHelper htmlHelper, InputType inputType, ModelMetadata metadata, string name, object value, bool useViewData, bool isChecked, bool setId, bool isExplicitValue, string format, IDictionary<string, object> htmlAttributes)
@@ -618,85 +619,7 @@ namespace EastRiverCommune.Extension
 
 			return new MvcHtmlString(tagBuilder.ToString(TagRenderMode.SelfClosing));
 		}
-
-
-		public static IDictionary<string, object> GetValidationAttributes(this HtmlHelper html_helper, string name, ModelMetadata metadata)
-		{
-			Dictionary<string, object> results = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
-
-			// The ordering of these 3 checks (and the early exits) is for performance reasons.
-			//if (!ViewContext.UnobtrusiveJavaScriptEnabled)
-			//{
-			//	return results;
-			//}
-
-			FormContext formContext = html_helper.ViewContext.ClientValidationEnabled ? html_helper.ViewContext.FormContext : null;
-			if (formContext == null)
-			{
-				return results;
-			}
-
-			string fullName = html_helper.ViewData.TemplateInfo.GetFullHtmlFieldName(name);
-			if (formContext.RenderedField(fullName))
-			{
-				return results;
-			}
-
-			formContext.RenderedField(fullName, true);
-
-			//IEnumerable<ModelClientValidationRule> clientRules = ClientValidationRuleFactory(html_helper, name, metadata);
-			//ValidationAttributesGenerator.GetValidationAttributes(clientRules, results);
-
-			AddValidateAttributes(results, metadata.ContainerType, metadata, html_helper.ViewContext);
-			foreach (var type in metadata.ContainerType.GetCustomAttributes(typeof(System.ComponentModel.DataAnnotations.MetadataTypeAttribute), true))
-			{
-				AddValidateAttributes(results, (type as System.ComponentModel.DataAnnotations.MetadataTypeAttribute).MetadataClassType, metadata, html_helper.ViewContext);
-			}
-
-			//foreach (var item in metadata.ContainerType.)
-			//{
-
-			//}
-
-			return results;
-		}
-
-		public static void AddValidateAttributes(Dictionary<string, object> dictionary, Type type, ModelMetadata metadata, ControllerContext controller_context)
-		{
-			var property = type.GetProperty(metadata.PropertyName);
-			if (property == null)
-				return;
-			foreach (var item in property.GetCustomAttributes(typeof(ValidationAttribute), true))
-			{
-				foreach (var t in (item as ValidationAttribute).GetValidateAttributes(metadata, controller_context))
-					dictionary[t.Key] = t.Value;
-			}
-		}
-
-		public static MvcHtmlString InputTextAttributesFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, string format, IDictionary<string, object> htmlAttributes)
-		{
-			ModelMetadata metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
-			return _InputAttributesHelper(htmlHelper, metadata, ExpressionHelper.GetExpressionText(expression), metadata.Model, format, htmlAttributes);
-		}
-
-		public static MvcHtmlString InputTextAttributesFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, IDictionary<string, object> htmlAttributes)
-		{
-			ModelMetadata metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
-			return _InputAttributesHelper(htmlHelper, metadata, ExpressionHelper.GetExpressionText(expression), metadata.Model, null, htmlAttributes);
-		}
-
-		public static MvcHtmlString InputTextAttributesFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, string format)
-		{
-			ModelMetadata metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
-			return _InputAttributesHelper(htmlHelper, metadata, ExpressionHelper.GetExpressionText(expression), metadata.Model, format, null);
-		}
-
-		public static MvcHtmlString InputTextAttributesFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression)
-		{
-			ModelMetadata metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
-			return _InputAttributesHelper(htmlHelper, metadata, ExpressionHelper.GetExpressionText(expression), metadata.Model, null, null);
-		}
-
+		*/
 		private static MvcHtmlString _InputAttributesHelper(HtmlHelper htmlHelper, ModelMetadata metadata, string name, object value, string format, IDictionary<string, object> htmlAttributes)
 		{
 			string fullName = htmlHelper.ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldName(name);
@@ -706,7 +629,7 @@ namespace EastRiverCommune.Extension
 			}
 			IDictionary<string, object> attributes = GetValidationAttributes(htmlHelper, name, metadata);
 			attributes["name"] = fullName;
-			attributes["value"] = htmlHelper.FormatValue(value, format);
+			attributes["value"] = Core.FormatToString(value, format); //htmlHelper.FormatValue(value, format);
 			attributes["id"] = TagBuilder.CreateSanitizedId(fullName);
 
 			// If there are any errors for a named field, we add the css attribute.
@@ -720,12 +643,12 @@ namespace EastRiverCommune.Extension
 			//}
 
 			//tagBuilder.MergeAttributes(GetValidationAttributes(htmlHelper, name, metadata));
-			var builder = FormatAttributes(null, attributes);
-			builder = FormatAttributes(builder, htmlAttributes);
+			var builder = ToHtmlAttributes(null, attributes);
+			builder = ToHtmlAttributes(builder, htmlAttributes);
 			return new MvcHtmlString(builder.ToString());
 		}
 
-		public static StringBuilder FormatAttributes(StringBuilder builder, IDictionary<string, object> attributes)
+		public static StringBuilder ToHtmlAttributes(StringBuilder builder, IDictionary<string, object> attributes)
 		{
 			if (builder == null)
 				builder = new StringBuilder().Append(" ");
@@ -742,10 +665,69 @@ namespace EastRiverCommune.Extension
 			return builder;
 		}
 
-		public static string HtmlAttributeEncode(object o)
+		public static void AddValidateAttributes(Dictionary<string, object> dictionary, Type type, ModelMetadata metadata, ControllerContext controller_context)
 		{
-			return "";
+			var property = type.GetProperty(metadata.PropertyName);
+			if (property == null)
+				return;
+			foreach (var item in property.GetCustomAttributes(typeof(ValidationAttribute), true))
+			{
+				foreach (var t in (item as ValidationAttribute).GetValidateAttributes(metadata, controller_context))
+					dictionary[t.Key] = t.Value;
+			}
 		}
+
+		public static IDictionary<string, object> GetValidationAttributes(this HtmlHelper html_helper, string name, ModelMetadata metadata)
+		{
+			Dictionary<string, object> results = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
+			FormContext formContext = html_helper.ViewContext.ClientValidationEnabled ? html_helper.ViewContext.FormContext : null;
+			if (formContext == null)
+			{
+				return results;
+			}
+
+			string fullName = html_helper.ViewData.TemplateInfo.GetFullHtmlFieldName(name);
+			if (formContext.RenderedField(fullName))
+			{
+				return results;
+			}
+
+			formContext.RenderedField(fullName, true);
+
+			AddValidateAttributes(results, metadata.ContainerType, metadata, html_helper.ViewContext);
+			foreach (var type in metadata.ContainerType.GetCustomAttributes(typeof(System.ComponentModel.DataAnnotations.MetadataTypeAttribute), true))
+			{
+				AddValidateAttributes(results, (type as System.ComponentModel.DataAnnotations.MetadataTypeAttribute).MetadataClassType, metadata, html_helper.ViewContext);
+			}
+
+			return results;
+		}
+
+		public static MvcHtmlString InputAttributesFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, string format, IDictionary<string, object> htmlAttributes)
+		{
+			ModelMetadata metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
+			return _InputAttributesHelper(htmlHelper, metadata, ExpressionHelper.GetExpressionText(expression), metadata.Model, format, htmlAttributes);
+		}
+
+		public static MvcHtmlString InputAttributesFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, IDictionary<string, object> htmlAttributes)
+		{
+			ModelMetadata metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
+			return _InputAttributesHelper(htmlHelper, metadata, ExpressionHelper.GetExpressionText(expression), metadata.Model, null, htmlAttributes);
+		}
+
+		public static MvcHtmlString InputAttributesFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, string format)
+		{
+			ModelMetadata metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
+			return _InputAttributesHelper(htmlHelper, metadata, ExpressionHelper.GetExpressionText(expression), metadata.Model, format, null);
+		}
+
+		public static MvcHtmlString InputAttributesFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression)
+		{
+			ModelMetadata metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
+			return _InputAttributesHelper(htmlHelper, metadata, ExpressionHelper.GetExpressionText(expression), metadata.Model, null, null);
+		}
+
+
 
 	}
 }

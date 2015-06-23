@@ -504,4 +504,3 @@ E:\WorkSpace\Github\EastRiverCommune\Src\bin\EntityFramework.SqlServer.xml
 E:\WorkSpace\Github\EastRiverCommune\Src\bin\Newtonsoft.Json.xml
 E:\WorkSpace\Github\EastRiverCommune\Src\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
 E:\WorkSpace\Github\EastRiverCommune\Src\bin\Manifest\Main.appcache
-E:\workspace\Github\EastRiverCommune\Src\obj\Debug\EastRiverCommune.csprojResolveAssemblyReference.cache

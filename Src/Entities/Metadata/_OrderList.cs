@@ -18,12 +18,19 @@ namespace EastRiverCommune.Entities.Metadata
 {
 	public class _OrderList
 	{
+		public static bool MinDate(object value)
+		{
+			return false;
+		}
+
 		//[DataType(DataType.Date)]
+		[DisplayName("提货日期")]
 		[Required]
 		[MinLength(10)]
 		[MaxLength(10)]
 		public DateTime DeliveryDate { get; set; }
 
+		[DisplayName("提货方式")]
 		[Required]
 		public string DeliveryManner { get; set; }
 

@@ -168,6 +168,7 @@
     </Compile>
     <Content Include="Entities\Tables.backup.sql" />
     <Content Include="Entities\Tables.sql" />
+    <Compile Include="Extension\Core.cs" />
     <Compile Include="Extension\InputHelper.cs" />
     <Compile Include="Extension\MaxLengthAttribute.cs" />
     <Compile Include="Extension\MinLengthAttribute.cs" />
