@@ -65,8 +65,15 @@
 			if (!validator.form())
 				return;
 			var cart = window.API.Cart();
-			var $form = cart.CreateForm(window.API.ApplicationPath + "/Commodity/ShoppingList");
-			$("#order-list").find("[type=text], [type=tel], select, textarea").clone().appendTo($form);
+			var $form = cart.CreateForm(window.API.ApplicationPath + "/Commodity/ShoppingList").addClass("temp-form");
+			$("#order-list").find("[type=text], [type=tel], select, textarea").each(function (index, element) {
+				var $element = $(element);
+				$("<input />").attr("name", $element.attr("name")).val($element.val()).appendTo($form);
+			});
+			//$form.children().each(function (index, element) {
+			//	var $element = $(element);
+			//	console.log($element.attr("name") + "\t" + $element.val())
+			//});
 			$form.appendTo($("body")).submit();
 			//var form = $("#order-list").SerializeObject();
 			//form["OrderItems"] = [];
@@ -129,6 +136,7 @@
 	});
 
 	$(window).on("popstate", function () {
+		$(".temp-form").remove();
 	    window.API.Commodities().Sync(initialize);
 	});
 

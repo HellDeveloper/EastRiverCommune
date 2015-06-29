@@ -1,5 +1,0 @@
-E:\workspace\Github\WSharp\Src\bin\Debug\WSharp.xml
-E:\workspace\Github\WSharp\Src\bin\Debug\WSharp.dll
-E:\workspace\Github\WSharp\Src\bin\Debug\WSharp.pdb
-E:\workspace\Github\WSharp\Src\obj\Debug\WSharp.dll
-E:\workspace\Github\WSharp\Src\obj\Debug\WSharp.pdb

@@ -1,5 +1,0 @@
-E:\workspace\Projects\Solutions\商酷综合管理系统_20150622\商酷综合管理系统\Swell\bin\Debug\Swell.xml
-E:\workspace\Projects\Solutions\商酷综合管理系统_20150622\商酷综合管理系统\Swell\bin\Debug\Swell.dll
-E:\workspace\Projects\Solutions\商酷综合管理系统_20150622\商酷综合管理系统\Swell\bin\Debug\Swell.pdb
-E:\workspace\Projects\Solutions\商酷综合管理系统_20150622\商酷综合管理系统\Swell\obj\Debug\Swell.dll
-E:\workspace\Projects\Solutions\商酷综合管理系统_20150622\商酷综合管理系统\Swell\obj\Debug\Swell.pdb

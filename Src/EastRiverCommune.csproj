@@ -139,6 +139,7 @@
     <Compile Include="Entities\Commodity.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Data.cs" />
     <Compile Include="Entities\Directory.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
@@ -168,6 +169,7 @@
     </Compile>
     <Content Include="Entities\Tables.backup.sql" />
     <Content Include="Entities\Tables.sql" />
+    <Compile Include="Extension\AttributeHelper.cs" />
     <Compile Include="Extension\Core.cs" />
     <Compile Include="Extension\InputHelper.cs" />
     <Compile Include="Extension\MaxLengthAttribute.cs" />

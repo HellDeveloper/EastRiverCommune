@@ -24,6 +24,15 @@ namespace EastRiverCommune.Extension
 			return value;
 		}
 
+		public static string ToDate(object value)
+		{
+			if (value == null)
+				return String.Empty;
+			else if (value is DateTime)
+				return ((DateTime)value).ToString("yyyy-MM-dd");
+			return value.ToString();
+		}
+
 		public static bool Has(System.Collections.IEnumerable enumerable)
 		{
 			if (enumerable == null)

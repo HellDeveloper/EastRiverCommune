@@ -52,7 +52,7 @@ input[type=password]
 {
     border: 1px solid rgba(153, 153, 153, 0.6);
     outline: 0px solid white;
-    padding: 2px;
+    padding: 5px 2px;
 }
 
 select:focus,
@@ -126,6 +126,7 @@ textarea
     border: 1px solid rgba(153, 153, 153, 0.6);
     outline: 0px solid white;
     resize: none;
+	padding: 5px 2px;
 }
 
 textarea:focus

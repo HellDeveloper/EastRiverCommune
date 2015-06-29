@@ -27,7 +27,7 @@ namespace EastRiverCommune.Controllers
 		[HttpGet]
         public ActionResult ShoppingList()
 		{
-			return this.View(new OrderList());
+			return this.View(new OrderList() { DeliveryDate = DateTime.Now });
 		}
 
 		/// <summary> 购物清单
@@ -37,7 +37,6 @@ namespace EastRiverCommune.Controllers
 		[HttpPost]
 		public ActionResult ShoppingList(OrderList order_list)
 		{
-			
 			return this.View(order_list);
 		}
 
