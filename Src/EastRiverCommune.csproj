@@ -159,6 +159,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Entities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Metadata\_Activity.cs" />
     <Compile Include="Entities\Metadata\_OrderItem.cs" />
     <Compile Include="Entities\Metadata\_OrderList.cs" />
     <Compile Include="Entities\OrderItem.cs">
@@ -171,7 +172,9 @@
     <Content Include="Entities\Tables.sql" />
     <Compile Include="Extension\AttributeHelper.cs" />
     <Compile Include="Extension\Core.cs" />
+    <Compile Include="Extension\LessThanAttribute.cs" />
     <Compile Include="Extension\InputHelper.cs" />
+    <Compile Include="Extension\GreaterThanAttribute.cs" />
     <Compile Include="Extension\MaxLengthAttribute.cs" />
     <Compile Include="Extension\MinLengthAttribute.cs" />
     <Compile Include="Extension\RequiredAttribute.cs" />
@@ -184,6 +187,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Fonts\icomoon.svg" />
+    <Content Include="Fonts\icomoon\demo-files\demo.css" />
+    <Content Include="Fonts\icomoon\demo-files\demo.js" />
+    <Content Include="Fonts\icomoon\demo.html" />
+    <Content Include="Fonts\icomoon\fonts\icomoon.svg" />
+    <Content Include="Fonts\icomoon\Read Me.txt" />
+    <Content Include="Fonts\icomoon\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\API-Cart.js" />
     <Content Include="Scripts\API-Commodity.js" />
@@ -202,6 +211,24 @@
     <Content Include="Scripts\mobiscroll-datetime.js" />
     <Content Include="Scripts\mobiscroll.js" />
     <Content Include="Scripts\jquery-tiptool.js" />
+    <Content Include="Scripts\QRCode\alignpat.js" />
+    <Content Include="Scripts\QRCode\bitmat.js" />
+    <Content Include="Scripts\QRCode\bmparser.js" />
+    <Content Include="Scripts\QRCode\datablock.js" />
+    <Content Include="Scripts\QRCode\databr.js" />
+    <Content Include="Scripts\QRCode\datamask.js" />
+    <Content Include="Scripts\QRCode\decoder.js" />
+    <Content Include="Scripts\QRCode\detector.js" />
+    <Content Include="Scripts\QRCode\errorlevel.js" />
+    <Content Include="Scripts\QRCode\findpat.js" />
+    <Content Include="Scripts\QRCode\formatinf.js" />
+    <Content Include="Scripts\QRCode\gf256.js" />
+    <Content Include="Scripts\QRCode\gf256poly.js" />
+    <Content Include="Scripts\QRCode\grid.js" />
+    <Content Include="Scripts\QRCode\qrcode.js" />
+    <Content Include="Scripts\QRCode\rsdecoder.js" />
+    <Content Include="Scripts\QRCode\test.html" />
+    <Content Include="Scripts\QRCode\version.js" />
     <Content Include="Scripts\tipso\tipso.css" />
     <Content Include="Scripts\tipso\tipso.js" />
     <Content Include="Scripts\tipso\tipso.min.css" />
@@ -229,9 +256,6 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Fonts\icomoon.eot" />
-    <Content Include="Fonts\icomoon.ttf" />
-    <Content Include="Fonts\icomoon.woff" />
     <Content Include="Manifest\Main.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Main.appcache</LastGenOutput>
@@ -242,6 +266,13 @@
       <DependentUpon>Main.tt</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Fonts\icomoon\fonts\icomoon.eot" />
+    <Content Include="Fonts\icomoon\fonts\icomoon.ttf" />
+    <Content Include="Fonts\icomoon\fonts\icomoon.woff" />
+    <Content Include="Fonts\icomoon\selection.json" />
+    <Content Include="Fonts\icomoon.eot" />
+    <Content Include="Fonts\icomoon.ttf" />
+    <Content Include="Fonts\icomoon.woff" />
     <None Include="Properties\PublishProfiles\default.pubxml" />
     <Content Include="Views\Shared\_Master.cshtml" />
     <Content Include="Views\Commodity\Detail.cshtml" />
@@ -252,6 +283,7 @@
     <Content Include="Views\Commodity\ShoppingList.cshtml" />
     <Content Include="Views\Activity\List.cshtml" />
     <Content Include="Views\Test\BaiduMap.cshtml" />
+    <Content Include="Views\Test\QRCode.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

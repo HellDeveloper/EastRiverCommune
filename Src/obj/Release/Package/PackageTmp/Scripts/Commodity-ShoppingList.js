@@ -43,11 +43,37 @@
 			});
 		});
 		$("#pay > span").text("确定支付");
+
+		var validator = $("form").validate({
+			errorPlacement: function ($error, $element) {
+				$error.appendTo($element);
+				if ($element.tiptool) {
+					$element.tiptool({
+						useTitle: false,
+						position: "bottom"
+					});
+					$element.tiptool("update", "content", $error.text());
+					$element.tiptool("show");
+					$error.css("display", "none");
+				} else {
+					
+				}
+			}
+		});
+
 		$("#pay").on("click", function () {
+			if (!validator.form())
+				return;
 			var cart = window.API.Cart();
-			var $form = cart.CreateForm(window.API.ApplicationPath + "/Order/Verify");
-			$("#order-list").find("[type=text], [type=tel], select, textarea").clone().appendTo($form);
-			console.log($form);
+			var $form = cart.CreateForm(window.API.ApplicationPath + "/Commodity/ShoppingList").addClass("temp-form");
+			$("#order-list").find("[type=text], [type=tel], select, textarea").each(function (index, element) {
+				var $element = $(element);
+				$("<input />").attr("name", $element.attr("name")).val($element.val()).appendTo($form);
+			});
+			//$form.children().each(function (index, element) {
+			//	var $element = $(element);
+			//	console.log($element.attr("name") + "\t" + $element.val())
+			//});
 			$form.appendTo($("body")).submit();
 			//var form = $("#order-list").SerializeObject();
 			//form["OrderItems"] = [];
@@ -110,8 +136,11 @@
 	});
 
 	$(window).on("popstate", function () {
+		$(".temp-form").remove();
 	    window.API.Commodities().Sync(initialize);
 	});
+
+
 	window.API.Commodities().Sync(initialize);
 });
 

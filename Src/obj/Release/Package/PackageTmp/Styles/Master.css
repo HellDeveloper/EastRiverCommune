@@ -3,7 +3,7 @@
 	background-color: rgba(255, 215, 170, 1);
 }
 
-body > *
+body > *:first-child
 {
 	position: absolute;
 	top: 0px;

@@ -16,5 +16,10 @@ namespace EastRiverCommune.Controllers
             return View();
         }
 
+		public ActionResult QRCode()
+		{
+			return View();
+		}
+
     }
 }

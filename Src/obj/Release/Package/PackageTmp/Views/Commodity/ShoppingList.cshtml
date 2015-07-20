@@ -1,6 +1,7 @@
-﻿@{
-    this.Layout = "~/Views/Shared/_Layout.cshtml";
-	this.ViewData["Title"] = "支付";
+﻿@model EastRiverCommune.Entities.OrderList
+@{
+	this.Layout = "~/Views/Shared/_Layout.cshtml";
+	this.ViewData["Title"] = "购物单";
 	this.ViewData["GoBack"] = this.Url.Content("~/Commodity/Store");
 }
 
@@ -8,7 +9,8 @@
 {
 	<link type="text/css" rel="stylesheet" href="~/Styles/mobiscroll.css" />
 	<link type="text/css" rel="stylesheet" href="~/Styles/jquery-SelectNumber.css" />
-	<link type="text/css" rel="stylesheet" href="~/Styles/Commodity-Inventory.css" />
+	<link type="text/css" href="~/Styles/jquery-tiptool.css" rel="stylesheet" />
+	<link type="text/css" rel="stylesheet" href="~/Styles/Commodity-ShoppingList.css" />
 }
 
 @section Scripts
@@ -16,7 +18,9 @@
 	<script type="text/javascript" src="~/Scripts/mobiscroll.js"></script>
 	<script type="text/javascript" src="~/Scripts/mobiscroll-datetime.js"></script>
 	<script type="text/javascript" src="~/Scripts/jquery-SelectNumber.js"></script>
-	<script type="text/javascript" src="~/Scripts/Commodity-Inventory.js"></script>
+	<script type="text/javascript" src="~/Scripts/jquery-tiptool.js"></script>
+	<script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>
+	<script type="text/javascript" src="~/Scripts/Commodity-ShoppingList.js"></script>
 }
 
 <table id="order-item">
@@ -38,7 +42,7 @@
 	<tbody></tbody>
 </table>
 
-<form id="order-list" method="post" action="~/Order/Verify">
+<form id="order-list" method="post">
 	<div>
 		<label for="DeliveryDate" class="vertical-justify">
 			<span>提</span>
@@ -47,7 +51,7 @@
 			<span>期</span>
 		</label>
 		<span>：</span>
-		<input type="text" required="required" maxlength="12" id="DeliveryDate" name="DeliveryDate" placeholder="请输入提货日期" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+		<input type="text" placeholder="请输入提货日期" @this.Html.InputAttributesFor(m => m.DeliveryDate, Core.ToDate) />
 	</div>
 	<div>
 		<label for="DeliveryManner" class="vertical-justify">
@@ -57,10 +61,12 @@
 			<span>式</span>
 		</label>
 		<span>：</span>
-		<select name="DeliveryManner" id="DeliveryManner">
-			<option value="到店自提">到店自提</option>
-			<option value="快递送货">快递送货</option>
+		<select id="DeliveryManner" name="DeliveryManner">
+			@*<option value="到店自提">到店自提</option>
+			<option value="快递送货">快递送货</option>*@
+			@this.Html.SelectOptionsFor(m => m.DeliveryManner, EastRiverCommune.Entities.Data.DeliveryManners)
 		</select>
+
 	</div>
 	<div>
 		<label for="Man" class="vertical-justify">
@@ -69,7 +75,7 @@
 			<span>人</span>
 		</label>
 		<span>：</span>
-		<input type="text" required="required" id="Man" name="Man" placeholder="请输入联系人" />
+		<input type="text" placeholder="请输入联系人" @this.Html.InputAttributesFor(m => m.Man) />
 	</div>
 	<div>
 		<label for="Phone" class="vertical-justify">
@@ -77,7 +83,7 @@
 			<span>话</span>
 		</label>
 		<span>：</span>
-		<input type="tel" required="required" id="Phone" name="Phone" placeholder="请输入联系人电话号码" />
+		<input type="tel" placeholder="请输入联系人电话号码" @this.Html.InputAttributesFor(m => m.Phone) />
 	</div>
 	<div style="display: none;">
 		<label for="Address" class="vertical-justify">

@@ -14,82 +14,118 @@ html, body
     background-color: rgb(245, 245, 245);
 }
 
-a:focus,
-div:focus,
-span:focus,
-input[type=reset]:focus,
-input[type=button]:focus,
-input[type=submit]:focus
-{
-    outline-style: none;
-}
-
 a
 {
-    text-decoration: none;
-    color: rgba(0, 0, 238, 1);
+	text-decoration: none;
 }
 
-a:active,
+button,
 input[type=reset],
 input[type=button],
 input[type=submit]
 {
-    border: 0px solid rgba(255, 255, 255, 0);
-    outline: 0px solid rgba(255, 255, 255, 0);
+	padding: 5px 10px;
+	border-radius: 5px;
 }
 
-a:visited
+button,
+input[type=reset],
+input[type=button],
+input[type=submit]
 {
-    text-decoration: none;
-    color: rgba(0, 0, 238, 1);
+	-webkit-appearance: button;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(46, 109, 164);
+	color: rgb(255, 255, 255);
+	background-color: rgb(51, 122, 183);
+	outline: 0px none rgba(255, 255, 255, 0);
+}
+
+button:hover,
+input[type=reset]:hover,
+input[type=button]:hover,
+input[type=submit]:hover
+{
+	color: rgb(255, 255, 255);
+	background-color: rgb(40, 96, 144);
+	border-color: rgb(32, 77, 116);
+	outline: 0px none rgba(255, 255, 255, 0);
 }
 
 select,
-input[type=tel],
+textarea,
 input[type=text],
-input[type=password]
+input[type=password],
+input[type=datetime],
+input[type=datetime-local],
+input[type=date],
+input[type=month],
+input[type=time],
+input[type=week],
+input[type=number],
+input[type=email],
+input[type=url],
+input[type=search],
+input[type=tel],
+input[type=color]
 {
-    border: 1px solid rgba(153, 153, 153, 0.6);
-    outline: 0px solid white;
-    padding: 2px;
+	padding: 5px 3px;
+	color: rgb(85, 85, 85);
+	vertical-align: middle;
+	background-color: rgb(255, 255, 255);
+	background-image: none;
+	border: 1px solid rgb(204, 204, 204);
+	border-radius: 0;
+	-webkit-appearance: none;
+	-webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 select:focus,
-input[type=tel]:focus,
+textarea:focus,
 input[type=text]:focus,
-input[type=password]:focus
+input[type=password]:focus,
+input[type=datetime]:focus,
+input[type=datetime-local]:focus,
+input[type=date]:focus,
+input[type=month]:focus,
+input[type=time]:focus,
+input[type=week]:focus,
+input[type=number]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=color]:focus
 {
-    border: 1px solid orange;
-    outline: 0px solid white;
-    box-shadow: rgba(250, 177, 4, 1) -1px 0px 2px, rgba(250, 177, 4, 1) 0px -1px 2px, rgba(250, 177, 4, 1) 1px 0px 2px, rgba(250, 177, 4, 1) 0px 1px 2px;
+	border-color: rgba(59, 180, 242, 1);
+	outline: 0;
+	-webkit-box-shadow: 0 0px 1px rgba(0, 0, 0, 0.075) inset, 0 0 5px rgba(59, 180, 242, 0.3);
+	box-shadow: 0 0px 1px rgba(0, 0, 0, 0.075) inset, 0 0 5px rgba(59, 180, 242, 0.3);
 }
 
-input[type=reset],
-input[type=button],
-input[type=submit]
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button
 {
-    text-align: center;
-    min-width: 60px;
-    min-height: 25px;
-    border-width: 0px;
-    border-style: solid;
-    cursor: pointer;
-    color: #663200;
-    background-color: #66CDCC;
+	display: none;
 }
 
-input[type=reset]:focus, input[type=reset]:hover,
-input[type=button]:focus, input[type=button]:hover,
-input[type=submit]:focus, input[type=submit]:hover
+input[disabled],
+button[disabled]
 {
-    border-width: 0px;
-    outline-width: 0px;
-    box-shadow: rgba(250, 177, 4, 1) -1px 0px 2px, rgba(250, 177, 4, 1) 0px -1px 2px, rgba(250, 177, 4, 1) 1px 0px 2px, rgba(250, 177, 4, 1) 0px 1px 2px;
-    color: #FEFEFE;
-    background-color: #0099CB;
-    border-radius: 2px;
+	cursor: default;
 }
+
+
+
 
 input[type=checkbox]
 {
@@ -123,16 +159,25 @@ input[type=checkbox]:checked + label
 
 textarea
 {
-    border: 1px solid rgba(153, 153, 153, 0.6);
-    outline: 0px solid white;
-    resize: none;
+    padding: 5px 3px;
+	color: rgb(85, 85, 85);
+	vertical-align: middle;
+	background-color: rgb(255, 255, 255);
+	background-image: none;
+	border: 1px solid rgb(204, 204, 204);
+	border-radius: 0;
+	-webkit-appearance: none;
+	-webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	resize: none;
 }
 
 textarea:focus
 {
-    border: 1px solid orange;
-    outline: 0px solid white;
-    box-shadow: rgba(250, 177, 4, 1) -1px 0px 2px, rgba(250, 177, 4, 1) 0px -1px 2px, rgba(250, 177, 4, 1) 1px 0px 2px, rgba(250, 177, 4, 1) 0px 1px 2px;
+    border-color: rgba(59, 180, 242, 1);
+	outline: 0;
+	-webkit-box-shadow: 0 0px 1px rgba(0, 0, 0, 0.075) inset, 0 0 5px rgba(59, 180, 242, 0.3);
+	box-shadow: 0 0px 1px rgba(0, 0, 0, 0.075) inset, 0 0 5px rgba(59, 180, 242, 0.3);
 }
 
 ul, li
@@ -140,6 +185,86 @@ ul, li
     list-style-type: none;
     margin: 0px;
     padding: 0px;
+}
+
+.button-primary
+{
+	color: rgb(255, 255, 255);
+	background-color: rgb(51, 122, 183);
+	border-color: rgb(46, 109, 164);
+	outline: 0px none rgba(255, 255, 255, 0);
+}
+
+.button-primary:hover
+{
+	color: rgb(255, 255, 255);
+	background-color: rgb(40, 96, 144);
+	border-color: rgb(32, 77, 116);
+	outline: 0px none rgba(255, 255, 255, 0);
+}
+
+.button-success
+{
+	color: rgb(255, 255, 255);
+	background-color: rgb(92, 184, 92);
+	border-color: rgb(76, 174, 76);
+	outline: 0px none rgba(255, 255, 255, 0);
+}
+
+.button-success:hover
+{
+	color: rgb(255, 255, 255);
+	background-color: rgb(68, 157, 68);
+	border-color: rgb(57, 132, 57);
+	outline: 0px none rgba(255, 255, 255, 0);
+}
+
+.button-info
+{
+	color: rgb(255, 255, 255);
+	background-color: rgb(91, 192, 222);
+	border-color: rgb(70, 184, 218);
+	outline: 0px none rgba(255, 255, 255, 0);
+}
+
+.button-info:hover
+{
+	color: rgb(255, 255, 255);
+	background-color: rgba(9, 168, 250, 0.96);
+	border-color: rgba(13, 194, 248, 0.99);
+	outline: 0px none rgba(255, 255, 255, 0);
+}
+
+.button-warning
+{
+	color: rgb(255, 255, 255);
+	background-color: rgb(240, 173, 78);
+	border-color: rgb(238, 162, 54);
+	outline: 0px none rgba(255, 255, 255, 0);
+}
+
+.button-warning:hover
+{
+	color: rgb(255, 255, 255);
+	background-color: rgb(236, 151, 31);
+	border-color: rgb(213, 133, 18);
+	outline: 0px none rgba(255, 255, 255, 0);
+}
+
+.button-danger
+{
+	color: rgb(255, 255, 255);
+	background-color: rgb(217, 83, 79);
+	border-color: rgb(212, 63, 58);
+	outline: 0px none rgba(255, 255, 255, 0);
+}
+
+.button-danger:hover
+{
+	color: rgb(255, 255, 255);
+	background-color: rgb(201, 48, 44);
+	border-color: rgb(172, 41, 37);
+	outline: 0px none rgba(255, 255, 255, 0);
 }
 
 .vertical-separator

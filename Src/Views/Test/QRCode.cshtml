@@ -1,0 +1,74 @@
+﻿@{
+	ViewBag.Title = "QRCode";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts
+{
+	<script type="text/javascript" src="~/Scripts/QRCode/grid.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/version.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/detector.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/formatinf.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/errorlevel.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/bitmat.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/datablock.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/bmparser.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/datamask.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/rsdecoder.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/gf256poly.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/gf256.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/decoder.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/qrcode.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/findpat.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/alignpat.js"></script>
+	<script type="text/javascript" src="~/Scripts/QRCode/databr.js"></script>
+	<script type="text/javascript" src="~/Scripts/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript">
+		// Put event listeners into place
+		window.addEventListener("DOMContentLoaded", function () {
+			// Grab elements, create settings, etc.
+			var canvas = document.getElementById("qr-canvas"),
+				context = canvas.getContext("2d"),
+				video = document.getElementById("video"),
+				videoObj = { "video": true },
+				errBack = function (error) {
+					console.log("Video capture error: ", error.code);
+				};
+
+			// Put video listeners into place
+			if (navigator.getUserMedia) { // Standard
+				navigator.getUserMedia(videoObj, function (stream) {
+					video.src = stream;
+					video.play();
+				}, errBack);
+			} else if (navigator.webkitGetUserMedia) { // WebKit-prefixed
+				navigator.webkitGetUserMedia(videoObj, function (stream) {
+					video.src = window.webkitURL.createObjectURL(stream);
+					video.play();
+				}, errBack);
+			}
+			else if (navigator.mozGetUserMedia) { // Firefox-prefixed
+				navigator.mozGetUserMedia(videoObj, function (stream) {
+					video.src = window.URL.createObjectURL(stream);
+					video.play();
+				}, errBack);
+			}
+
+			var identity = window.setInterval(function () {
+				try {
+					context.drawImage(video, 0, 0, 640, 480);
+					var result = qrcode.decode();
+					document.getElementById("#result").innerHTML = result;
+					window.clearInterval(identity);
+				} catch (e) {
+					
+				}
+			}, 800);
+			
+		}, false);
+	</script>
+
+}
+<video id="video" autoplay="autoplay" style="margin: 0px 23%; width: 64%; width: 48%;"></video>
+<canvas id="qr-canvas" width="640" height="480" style="margin: 0px auto; display: none;"></canvas>
+<div id="result"></div>

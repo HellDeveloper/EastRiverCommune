@@ -10,9 +10,9 @@ namespace EastRiverCommune.Extension
 	[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = false)]
 	public class MaxLengthAttribute : ValidationAttribute
 	{
-		public MaxLengthAttribute(int minlength)
+		public MaxLengthAttribute(int maxlength)
 		{
-			this.MaximumLength = minlength;
+			this.MaximumLength = maxlength;
 		}
 
 		public int MaximumLength { get; set; }

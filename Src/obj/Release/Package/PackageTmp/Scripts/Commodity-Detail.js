@@ -12,7 +12,7 @@
     };
 
     $("#pay").on("click", function () {
-		window.location.href = window.API.ApplicationPath + "/Commodity/Inventory"
+		window.location.href = window.API.ApplicationPath + "/Commodity/ShoppingList"
     }).children().text("去结算");
 
     var initialize = function () {
