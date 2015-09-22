@@ -45,19 +45,14 @@
 		$("#pay > span").text("确定支付");
 
 		var validator = $("form").validate({
-			errorPlacement: function ($error, $element) {
-				$error.appendTo($element);
-				if ($element.tiptool) {
-					$element.tiptool({
-						useTitle: false,
-						position: "bottom"
-					});
-					$element.tiptool("update", "content", $error.text());
-					$element.tiptool("show");
-					$error.css("display", "none");
-				} else {
-					
-				}
+            "wrapper": "div",
+            "errorPlacement": function ($error, $element) {
+				//$error.appendTo($element);
+                $element.after($error);
+                $error.css({
+                    "left": (0 - $element.outerWidth()) + "px",
+                    "top" : ($element.height()) + "px"
+                })
 			}
 		});
 
