@@ -1,4 +1,4 @@
-﻿@keyframes FadeTopLeftIn
+﻿/*@keyframes FadeTopLeftIn
 {
     0%
     {
@@ -100,12 +100,12 @@
     {
         -webkit-transform: translate(0px, 0px);
     }
-}
+}*/
 
 
 body
 {
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 body > article
@@ -212,6 +212,7 @@ body > article > header > span.vertical-center
     -webkit-flex-flow: column;
     -ms-flex-flow: column;
     flex-flow: column;
+    overflow: visible;
 }
 
 #box > section:nth-child(2n+1)
