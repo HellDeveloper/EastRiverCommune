@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace EastRiverCommune.Extension
+namespace EastRiverCommune.Api
 {
-    public class BaiduApi
+    public class Baidu
     {
 
         public string ApiKey { get; set; }

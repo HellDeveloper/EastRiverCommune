@@ -178,7 +178,7 @@
     <Compile Include="Extension\MaxLengthAttribute.cs" />
     <Compile Include="Extension\MinLengthAttribute.cs" />
     <Compile Include="Extension\RequiredAttribute.cs" />
-    <Compile Include="Extension\ValidateHelper.cs" />
+    <Compile Include="Api\Baidu.cs" />
     <Compile Include="Extension\ValidationAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
