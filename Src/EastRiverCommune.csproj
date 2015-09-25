@@ -178,6 +178,7 @@
     <Compile Include="Extension\MaxLengthAttribute.cs" />
     <Compile Include="Extension\MinLengthAttribute.cs" />
     <Compile Include="Extension\RequiredAttribute.cs" />
+    <Compile Include="Extension\ValidateHelper.cs" />
     <Compile Include="Extension\ValidationAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -284,6 +285,7 @@
     <Content Include="Views\Activity\List.cshtml" />
     <Content Include="Views\Test\BaiduMap.cshtml" />
     <Content Include="Views\Test\QRCode.cshtml" />
+    <Content Include="Views\Main\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

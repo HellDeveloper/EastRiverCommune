@@ -11,7 +11,12 @@ namespace EastRiverCommune.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
+        }
+
+        public ActionResult Login()
+        {
+            return this.View();
         }
 
         public ActionResult AppCache()

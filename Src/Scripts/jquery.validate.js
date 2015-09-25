@@ -1264,3 +1264,10 @@ $.format = $.validator.format;
 	});
 }(jQuery));
 
+jQuery.validator.addMethod("phone", function (value, element) {
+    var flag = true;
+    $.ajax({
+
+    });
+    return flag;
+}, "电话错误");

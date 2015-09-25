@@ -49,10 +49,17 @@
             "errorPlacement": function ($error, $element) {
 				//$error.appendTo($element);
                 $element.after($error);
+
                 $error.css({
+                    "vertical-align": "top",
                     "left": (0 - $element.outerWidth()) + "px",
-                    "top" : ($element.height()) + "px"
-                })
+                    "top": ($element.outerHeight() - 12) + "px"
+                });
+                if ($element.attr("id") == "Address") {
+                    $error.css({
+                        "top": ($element.outerHeight() - 20) + "px"
+                    })
+                }
 			}
 		});
 
