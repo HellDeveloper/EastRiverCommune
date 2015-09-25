@@ -37,8 +37,8 @@ namespace EastRiverCommune.Controllers
 		[HttpPost]
 		public ActionResult ShoppingList(OrderList order_list)
 		{
-
-			return this.View(order_list);
+            this.WeChat.GetOpenID();
+            return this.PartialView("~/Test/ShowParams.cshtml");
 		}
 
         /// <summary> 详情
@@ -97,5 +97,6 @@ namespace EastRiverCommune.Controllers
             var result = EastRiverCommune.Models.Result.Create(desctiption);
             return this.Json(result, JsonRequestBehavior.AllowGet);
         }
+
     }
 }

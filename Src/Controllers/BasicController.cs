@@ -25,9 +25,8 @@ namespace EastRiverCommune.Controllers
 			System.Threading.Thread.CurrentThread.CurrentUICulture = uiculture;
 		}
 
-		
-
-		private EastRiverEntities database_context;
+        #region DatabaseContext
+        private EastRiverEntities database_context;
 
 		public virtual EastRiverEntities DatabaseContext
 		{
@@ -38,20 +37,39 @@ namespace EastRiverCommune.Controllers
 				return this.database_context;
 			}
 		}
+        #endregion
 
-		private JavaScriptSerializer _java_script_serializer;
+        #region JsonSerializer
+        private Newtonsoft.Json.JsonSerializer _json_serializer;
 
-		public JavaScriptSerializer JavaScriptSerializer
+		public Newtonsoft.Json.JsonSerializer JsonSerializer
 		{
 			get 
 			{
-				if (this._java_script_serializer == null)
-					this._java_script_serializer = new JavaScriptSerializer();
-				return this._java_script_serializer;
+				if (this._json_serializer == null)
+					this._json_serializer = new Newtonsoft.Json.JsonSerializer();
+				return this._json_serializer;
 			}
 		}
+        #endregion
 
-		protected override void Dispose(bool disposing)
+        #region WeChat
+        private EastRiverCommune.Api.WeChat _we_chat;
+
+        public EastRiverCommune.Api.WeChat WeChat
+        {
+            get
+            {
+                if (this._we_chat == null)
+                    this._we_chat = new Api.WeChat(this, "wxa8599d5d1d3568c9");
+                return this._we_chat;
+            }
+        }
+        #endregion
+
+
+
+        protected override void Dispose(bool disposing)
 		{
 			base.Dispose(disposing);
 			if(disposing)
@@ -81,5 +99,7 @@ namespace EastRiverCommune.Controllers
 			return this.PartialView("~/Views/Shared/_ValidationSummary.cshtml");
 		}
 
+
+        
     }
 }

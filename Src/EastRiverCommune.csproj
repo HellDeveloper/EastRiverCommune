@@ -123,12 +123,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\WeChat.cs" />
     <Compile Include="Controllers\ActivityController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CommodityController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\WeChatController.cs" />
     <Compile Include="Entities\Activity.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
@@ -286,6 +288,9 @@
     <Content Include="Views\Test\BaiduMap.cshtml" />
     <Content Include="Views\Test\QRCode.cshtml" />
     <Content Include="Views\Main\Login.cshtml" />
+    <Content Include="Views\Test\ShowParams.cshtml" />
+    <Content Include="Views\Basic\RedirectToWeChatOAuth.cshtml" />
+    <Content Include="Views\WeChat\RedirectToWeChatOAuth.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

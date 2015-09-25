@@ -21,5 +21,12 @@ namespace EastRiverCommune.Controllers
 			return View();
 		}
 
+        public ActionResult ShowParams()
+        {
+
+            return this.View();
+        }
+
+
     }
 }
