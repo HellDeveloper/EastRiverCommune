@@ -28,8 +28,10 @@ namespace EastRiverCommune.Entities
         public DbSet<Directory> Directories { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Commodity> Commodities { get; set; }
-        public DbSet<OrderItem> OrderItems { get; set; }
-        public DbSet<OrderList> OrderLists { get; set; }
         public DbSet<Activity> Activities { get; set; }
+        public DbSet<AppSetting> AppSettings { get; set; }
+        public DbSet<TempData> TempDatas { get; set; }
+        public DbSet<OrderList> OrderLists { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
     }
 }

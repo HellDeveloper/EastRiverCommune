@@ -1,15 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="EastRiverCommune.Entities" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-  <EntityContainer Name="EastRiverEntities" annotation:LazyLoadingEnabled="true">
+<Schema Namespace="EastRiverCommune.Entities" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="EastRiverEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
     <EntitySet Name="Directories" EntityType="EastRiverCommune.Entities.Directory" />
     <EntitySet Name="Categories" EntityType="EastRiverCommune.Entities.Category" />
     <EntitySet Name="Commodities" EntityType="EastRiverCommune.Entities.Commodity" />
-    <EntitySet Name="OrderItems" EntityType="EastRiverCommune.Entities.OrderItem" />
-    <EntitySet Name="OrderLists" EntityType="EastRiverCommune.Entities.OrderList" />
     <AssociationSet Name="FK_Commodity_Category" Association="EastRiverCommune.Entities.FK_Commodity_Category">
       <End Role="Category" EntitySet="Categories" />
       <End Role="Commodity" EntitySet="Commodities" />
     </AssociationSet>
+    <EntitySet Name="Activities" EntityType="EastRiverCommune.Entities.Activity" />
+    <AssociationSet Name="FK_Activity_Category" Association="EastRiverCommune.Entities.FK_Activity_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Activity" EntitySet="Activities" />
+    </AssociationSet>
+    <EntitySet Name="AppSettings" EntityType="EastRiverCommune.Entities.AppSetting" />
+    <EntitySet Name="TempDatas" EntityType="EastRiverCommune.Entities.TempData" />
+    <EntitySet Name="OrderLists" EntityType="EastRiverCommune.Entities.OrderList" />
+    <EntitySet Name="OrderItems" EntityType="EastRiverCommune.Entities.OrderItem" />
     <AssociationSet Name="FK_OrderItem_Commodity" Association="EastRiverCommune.Entities.FK_OrderItem_Commodity">
       <End Role="Commodity" EntitySet="Commodities" />
       <End Role="OrderItem" EntitySet="OrderItems" />
@@ -17,11 +24,6 @@
     <AssociationSet Name="FK_OrderItem_OrderList" Association="EastRiverCommune.Entities.FK_OrderItem_OrderList">
       <End Role="OrderList" EntitySet="OrderLists" />
       <End Role="OrderItem" EntitySet="OrderItems" />
-    </AssociationSet>
-    <EntitySet Name="Activities" EntityType="EastRiverCommune.Entities.Activity" />
-    <AssociationSet Name="FK_Activity_Category" Association="EastRiverCommune.Entities.FK_Activity_Category">
-      <End Role="Category" EntitySet="Categories" />
-      <End Role="Activity" EntitySet="Activities" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Directory">
@@ -63,39 +65,6 @@
     <NavigationProperty Name="Category" Relationship="EastRiverCommune.Entities.FK_Commodity_Category" FromRole="Commodity" ToRole="Category" />
     <NavigationProperty Name="OrderItems" Relationship="EastRiverCommune.Entities.FK_OrderItem_Commodity" FromRole="Commodity" ToRole="OrderItem" />
   </EntityType>
-  <EntityType Name="OrderItem">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-    <Property Name="Enable" Type="Boolean" Nullable="false" />
-    <Property Name="WhenModify" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="OrderListID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-    <Property Name="CommodityID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-    <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-    <Property Name="Count" Type="Int32" Nullable="false" />
-    <Property Name="Total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-    <NavigationProperty Name="Commodity" Relationship="EastRiverCommune.Entities.FK_OrderItem_Commodity" FromRole="OrderItem" ToRole="Commodity" />
-    <NavigationProperty Name="OrderList" Relationship="EastRiverCommune.Entities.FK_OrderItem_OrderList" FromRole="OrderItem" ToRole="OrderList" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Unit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="OrderList">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-    <Property Name="Enable" Type="Boolean" Nullable="false" />
-    <Property Name="WhenModify" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="DeliveryDate" Type="DateTime" Precision="0" Nullable="false" />
-    <Property Name="DeliveryManner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Man" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="OrderItems" Relationship="EastRiverCommune.Entities.FK_OrderItem_OrderList" FromRole="OrderList" ToRole="OrderItem" />
-  </EntityType>
   <Association Name="FK_Commodity_Category">
     <End Type="EastRiverCommune.Entities.Category" Role="Category" Multiplicity="0..1" />
     <End Type="EastRiverCommune.Entities.Commodity" Role="Commodity" Multiplicity="*" />
@@ -105,30 +74,6 @@
       </Principal>
       <Dependent Role="Commodity">
         <PropertyRef Name="CategoryID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_OrderItem_Commodity">
-    <End Type="EastRiverCommune.Entities.Commodity" Role="Commodity" Multiplicity="0..1" />
-    <End Type="EastRiverCommune.Entities.OrderItem" Role="OrderItem" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Commodity">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="OrderItem">
-        <PropertyRef Name="CommodityID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_OrderItem_OrderList">
-    <End Type="EastRiverCommune.Entities.OrderList" Role="OrderList" Multiplicity="0..1" />
-    <End Type="EastRiverCommune.Entities.OrderItem" Role="OrderItem" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="OrderList">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="OrderItem">
-        <PropertyRef Name="OrderListID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -159,6 +104,73 @@
       </Principal>
       <Dependent Role="Activity">
         <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AppSetting">
+    <Key>
+      <PropertyRef Name="Key" />
+    </Key>
+    <Property Name="Key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TempData">
+    <Key>
+      <PropertyRef Name="Key" />
+    </Key>
+    <Property Name="Key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="OrderList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Enable" Type="Boolean" Nullable="false" />
+    <Property Name="WhenModify" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DeliveryDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DeliveryManner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Man" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="OrderItems" Relationship="EastRiverCommune.Entities.FK_OrderItem_OrderList" FromRole="OrderList" ToRole="OrderItem" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Enable" Type="Boolean" Nullable="false" />
+    <Property Name="WhenModify" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OrderListID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="CommodityID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="Total" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <NavigationProperty Name="Commodity" Relationship="EastRiverCommune.Entities.FK_OrderItem_Commodity" FromRole="OrderItem" ToRole="Commodity" />
+    <NavigationProperty Name="OrderList" Relationship="EastRiverCommune.Entities.FK_OrderItem_OrderList" FromRole="OrderItem" ToRole="OrderList" />
+  </EntityType>
+  <Association Name="FK_OrderItem_Commodity">
+    <End Type="EastRiverCommune.Entities.Commodity" Role="Commodity" Multiplicity="0..1" />
+    <End Type="EastRiverCommune.Entities.OrderItem" Role="OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commodity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="CommodityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItem_OrderList">
+    <End Type="EastRiverCommune.Entities.OrderList" Role="OrderList" Multiplicity="0..1" />
+    <End Type="EastRiverCommune.Entities.OrderItem" Role="OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="OrderListID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

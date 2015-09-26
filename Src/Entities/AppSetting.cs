@@ -12,17 +12,9 @@ namespace EastRiverCommune.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderItem
+    public partial class AppSetting
     {
-        public string ID { get; set; }
-        public bool Enable { get; set; }
-        public System.DateTime WhenModify { get; set; }
-        public string OrderListID { get; set; }
-        public string CommodityID { get; set; }
-        public int Count { get; set; }
-        public decimal Total { get; set; }
-    
-        public virtual Commodity Commodity { get; set; }
-        public virtual OrderList OrderList { get; set; }
+        public string Key { get; set; }
+        public string Value { get; set; }
     }
 }

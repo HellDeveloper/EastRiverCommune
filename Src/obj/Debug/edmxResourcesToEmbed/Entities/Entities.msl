@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="EastRiverCommuneEntitiesStoreContainer" CdmEntityContainer="EastRiverEntities">
     <EntitySetMapping Name="Directories">
       <EntityTypeMapping TypeName="EastRiverCommune.Entities.Directory">
@@ -39,20 +39,37 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="OrderItems">
-      <EntityTypeMapping TypeName="EastRiverCommune.Entities.OrderItem">
-        <MappingFragment StoreEntitySet="OrderItem">
-          <ScalarProperty Name="Unit" ColumnName="Unit" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Total" ColumnName="Total" />
-          <ScalarProperty Name="Count" ColumnName="Count" />
+    <EntitySetMapping Name="Activities">
+      <EntityTypeMapping TypeName="EastRiverCommune.Entities.Activity">
+        <MappingFragment StoreEntitySet="Activity">
+          <ScalarProperty Name="Days" ColumnName="Days" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="CommodityID" ColumnName="CommodityID" />
-          <ScalarProperty Name="OrderListID" ColumnName="OrderListID" />
+          <ScalarProperty Name="RegistEndDate" ColumnName="RegistEndDate" />
+          <ScalarProperty Name="RegistBeginDate" ColumnName="RegistBeginDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="WhenModify" ColumnName="WhenModify" />
           <ScalarProperty Name="Enable" ColumnName="Enable" />
           <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppSettings">
+      <EntityTypeMapping TypeName="EastRiverCommune.Entities.AppSetting">
+        <MappingFragment StoreEntitySet="AppSetting">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempDatas">
+      <EntityTypeMapping TypeName="EastRiverCommune.Entities.TempData">
+        <MappingFragment StoreEntitySet="TempData">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -71,18 +88,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Activities">
-      <EntityTypeMapping TypeName="EastRiverCommune.Entities.Activity">
-        <MappingFragment StoreEntitySet="Activity">
-          <ScalarProperty Name="Days" ColumnName="Days" />
-          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="RegistEndDate" ColumnName="RegistEndDate" />
-          <ScalarProperty Name="RegistBeginDate" ColumnName="RegistBeginDate" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Content" ColumnName="Content" />
-          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
+    <EntitySetMapping Name="OrderItems">
+      <EntityTypeMapping TypeName="EastRiverCommune.Entities.OrderItem">
+        <MappingFragment StoreEntitySet="OrderItem">
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="CommodityID" ColumnName="CommodityID" />
+          <ScalarProperty Name="OrderListID" ColumnName="OrderListID" />
           <ScalarProperty Name="WhenModify" ColumnName="WhenModify" />
           <ScalarProperty Name="Enable" ColumnName="Enable" />
           <ScalarProperty Name="ID" ColumnName="ID" />

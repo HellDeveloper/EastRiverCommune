@@ -11,7 +11,7 @@ namespace EastRiverCommune.Controllers
 
         public ActionResult RedirectToWeChatOAuth(string id)
         {
-
+		 
             return this.View(id);
         }
 

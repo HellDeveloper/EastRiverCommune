@@ -155,7 +155,7 @@ namespace EastRiverCommune.Entities
 			OrderItem order_item = new OrderItem()
 			{
 				CommodityID = reader["CommodityID"] as string,
-				Price = (decimal)reader["Price"],
+				//Price = (decimal)reader["Price"],
 				Count = (int)reader["Count"]
 			};
 

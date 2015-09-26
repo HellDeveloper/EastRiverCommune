@@ -37,7 +37,9 @@ namespace EastRiverCommune.Controllers
 		[HttpPost]
 		public ActionResult ShoppingList(OrderList order_list)
 		{
-            this.WeChat.GetOpenID();
+			if (order_list == null || order_list.OrderItems == null || order_list.OrderItems.Count == 0)
+				return new EmptyResult();
+
             return this.PartialView("~/Test/ShowParams.cshtml");
 		}
 

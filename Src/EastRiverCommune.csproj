@@ -124,7 +124,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\WeChat.cs" />
-    <Compile Include="Controllers\ActivityController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CommodityController.cs" />
@@ -132,6 +131,9 @@
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\WeChatController.cs" />
     <Compile Include="Entities\Activity.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AppSetting.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Category.cs">
@@ -164,14 +166,17 @@
     <Compile Include="Entities\Metadata\_Activity.cs" />
     <Compile Include="Entities\Metadata\_OrderItem.cs" />
     <Compile Include="Entities\Metadata\_OrderList.cs" />
+    <Content Include="Entities\Tables.backup.sql" />
+    <Content Include="Entities\Tables.sql" />
     <Compile Include="Entities\OrderItem.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\OrderList.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
-    <Content Include="Entities\Tables.backup.sql" />
-    <Content Include="Entities\Tables.sql" />
+    <Compile Include="Entities\TempData.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Extension\AttributeHelper.cs" />
     <Compile Include="Extension\Core.cs" />
     <Compile Include="Extension\LessThanAttribute.cs" />
@@ -284,12 +289,10 @@
     <Content Include="Views\Shared\_NavigateMenu.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Commodity\ShoppingList.cshtml" />
-    <Content Include="Views\Activity\List.cshtml" />
     <Content Include="Views\Test\BaiduMap.cshtml" />
     <Content Include="Views\Test\QRCode.cshtml" />
     <Content Include="Views\Main\Login.cshtml" />
     <Content Include="Views\Test\ShowParams.cshtml" />
-    <Content Include="Views\Basic\RedirectToWeChatOAuth.cshtml" />
     <Content Include="Views\WeChat\RedirectToWeChatOAuth.cshtml" />
   </ItemGroup>
   <ItemGroup>
