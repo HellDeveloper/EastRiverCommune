@@ -10,7 +10,6 @@ namespace EastRiverCommune.Entities
 	[System.ComponentModel.DataAnnotations.MetadataType(typeof(Metadata._OrderList))]
 	public partial class OrderList
 	{
-
 	}
 }
 

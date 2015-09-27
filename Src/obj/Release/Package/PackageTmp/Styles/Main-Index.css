@@ -105,7 +105,7 @@
 
 body
 {
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 body > article
@@ -187,6 +187,7 @@ body > article > header > span.vertical-center
     -webkit-flex: 1;
     flex: 1;
     position: relative;
+    overflow: hidden;
 }
 
 /*body > article > #main > #box*/

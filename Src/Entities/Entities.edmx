@@ -73,8 +73,9 @@
           <Property Name="WhenModify" Type="datetime" Nullable="false" />
           <Property Name="OrderListID" Type="nvarchar" MaxLength="25" />
           <Property Name="CommodityID" Type="nvarchar" MaxLength="25" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
           <Property Name="Count" Type="int" Nullable="false" />
-          <Property Name="Total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
         <EntityType Name="OrderList">
           <Key>
@@ -89,6 +90,7 @@
           <Property Name="Phone" Type="nvarchar" MaxLength="50" />
           <Property Name="Address" Type="nvarchar" MaxLength="50" />
           <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="Paid" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TempData">
           <Key>
@@ -310,6 +312,7 @@
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="OrderItems" Relationship="EastRiverCommune.Entities.FK_OrderItem_OrderList" FromRole="OrderList" ToRole="OrderItem" />
+          <Property Name="Paid" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="OrderItem">
           <Key>
@@ -321,9 +324,10 @@
           <Property Name="OrderListID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="CommodityID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Count" Type="Int32" Nullable="false" />
-          <Property Name="Total" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Total" Type="Decimal" Precision="10" Scale="2" />
           <NavigationProperty Name="Commodity" Relationship="EastRiverCommune.Entities.FK_OrderItem_Commodity" FromRole="OrderItem" ToRole="Commodity" />
           <NavigationProperty Name="OrderList" Relationship="EastRiverCommune.Entities.FK_OrderItem_OrderList" FromRole="OrderItem" ToRole="OrderList" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
         </EntityType>
         <Association Name="FK_OrderItem_Commodity">
           <End Type="EastRiverCommune.Entities.Commodity" Role="Commodity" Multiplicity="0..1" />
@@ -430,6 +434,7 @@
           <EntitySetMapping Name="OrderLists">
             <EntityTypeMapping TypeName="EastRiverCommune.Entities.OrderList">
               <MappingFragment StoreEntitySet="OrderList">
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
@@ -445,6 +450,7 @@
           <EntitySetMapping Name="OrderItems">
             <EntityTypeMapping TypeName="EastRiverCommune.Entities.OrderItem">
               <MappingFragment StoreEntitySet="OrderItem">
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Total" ColumnName="Total" />
                 <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="CommodityID" ColumnName="CommodityID" />

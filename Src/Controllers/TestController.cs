@@ -23,7 +23,7 @@ namespace EastRiverCommune.Controllers
 
         public ActionResult ShowParams()
         {
-
+			
             return this.View();
         }
 

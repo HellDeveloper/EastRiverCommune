@@ -83,7 +83,7 @@
 			<span>话</span>
 		</label>
 		<span>：</span>
-		<input type="tel" placeholder="请输入联系人电话号码" @this.Html.InputAttributesFor(m => m.Phone) />
+		<input type="tel" phone="true" placeholder="请输入联系人电话号码" @this.Html.InputAttributesFor(m => m.Phone) />
 	</div>
 	<div style="display: none;">
 		<label for="Address" class="vertical-justify">
@@ -93,7 +93,7 @@
 			<span>址</span>
 		</label>
 		<span>：</span>
-		<textarea id="Address" name="Address" placeholder="请输入收货地址"></textarea>
+		<textarea id="Address" name="Address" placeholder="请输入收货地址" data-msg-required="收货地址必填">@this.Model.Address</textarea>
 	</div>
 	<div>
 		<label for="Remark" class="vertical-justify">
@@ -101,6 +101,6 @@
 			<span>注</span>
 		</label>
 		<span>：</span>
-		<textarea id="Remark" name="Remark" placeholder="备注信息"></textarea>
+		<textarea id="Remark" name="Remark" placeholder="备注信息">@this.Model.Remark</textarea>
 	</div>
 </form>

@@ -20,7 +20,8 @@ namespace EastRiverCommune.Entities
         public string OrderListID { get; set; }
         public string CommodityID { get; set; }
         public int Count { get; set; }
-        public decimal Total { get; set; }
+        public Nullable<decimal> Total { get; set; }
+        public Nullable<decimal> Price { get; set; }
     
         public virtual Commodity Commodity { get; set; }
         public virtual OrderList OrderList { get; set; }

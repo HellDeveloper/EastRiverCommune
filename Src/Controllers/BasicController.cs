@@ -61,13 +61,57 @@ namespace EastRiverCommune.Controllers
             get
             {
                 if (this._we_chat == null)
-                    this._we_chat = new Api.WeChat(this, "wxa8599d5d1d3568c9");
+				{
+					string appid = System.Configuration.ConfigurationManager.AppSettings["WeChatAppID"];
+					string secret = System.Configuration.ConfigurationManager.AppSettings["WeChatSecret"];
+					this._we_chat = new Api.WeChat(this, appid, secret);
+				}
                 return this._we_chat;
             }
         }
         #endregion
 
+		#region Base64
+		/// <summary> 编
+		/// </summary>
+		/// <param name="encoding"></param>
+		/// <param name="str"></param>
+		/// <returns></returns>
+		public static string ConvertToBase64String(System.Text.Encoding encoding, string str)
+		{
+			byte[] bytes = encoding.GetBytes(str);
+			return Convert.ToBase64String(bytes);
+		}
 
+		/// <summary> 解
+		/// </summary>
+		/// <param name="encoding"></param>
+		/// <param name="str"></param>
+		/// <returns></returns>
+		public static string ConvertFromBase64String(System.Text.Encoding encoding, string str)
+		{
+			byte[] outputb = Convert.FromBase64String(str);
+			return encoding.GetString(outputb);
+		}
+
+		/// <summary> 编
+		/// </summary>
+		/// <param name="str"></param>
+		/// <returns></returns>
+		public string ConvertToBase64String(string str)
+		{
+			return ConvertToBase64String(System.Text.Encoding.Default, str);
+		}
+
+		/// <summary> 解
+		/// </summary>
+		/// <param name="str"></param>
+		/// <returns></returns>
+		public string ConvertFromBase64String(string str)
+		{
+			return ConvertFromBase64String(System.Text.Encoding.Default, str);
+		}
+		#endregion
 
         protected override void Dispose(bool disposing)
 		{

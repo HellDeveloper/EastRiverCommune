@@ -1,6 +1,13 @@
 ﻿$(function () {
+	
 	var $sum = $("#sum");
+	
 	var $commodities = $("#commodities");
+	
+	var __state = {
+		"url": window.ApplicationPath + "/Main/Index"
+	}
+
 	$(window).on("resize", function () {
 		var commodity_size = calculate_commodity_size();
 		$commodities.children().each(function (index, commodity) {
@@ -32,7 +39,6 @@
 			array = [];
 		}
 		commodities.Each(function (index, commodity) {
-		    console.log(commodity);
 		    var $commodity = $("<section></section>").addClass("commodity").attr("data-commodity-id", commodity.ID).css({
 				"background-image": "url(" + window.API.ApplicationPath + "/Commodity/Image/" + commodity.ID + ")",
 				"width": commodity_size.width + "px",

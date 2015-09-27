@@ -68,8 +68,9 @@
     <Property Name="WhenModify" Type="datetime" Nullable="false" />
     <Property Name="OrderListID" Type="nvarchar" MaxLength="25" />
     <Property Name="CommodityID" Type="nvarchar" MaxLength="25" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
     <Property Name="Count" Type="int" Nullable="false" />
-    <Property Name="Total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Total" Type="decimal" Precision="10" Scale="2" />
   </EntityType>
   <EntityType Name="OrderList">
     <Key>
@@ -84,6 +85,7 @@
     <Property Name="Phone" Type="nvarchar" MaxLength="50" />
     <Property Name="Address" Type="nvarchar" MaxLength="50" />
     <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="Paid" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="TempData">
     <Key>

@@ -67,7 +67,13 @@
 			if (!validator.form())
 				return;
 			var cart = window.API.Cart();
-			var $form = cart.CreateForm(window.API.ApplicationPath + "/Commodity/ShoppingList").addClass("temp-form");
+			if (cart.CalculateSum() == 0) {
+				alert("购物车没有商品");
+				return false;
+			}
+			var $form = cart.CreateForm(window.API.ApplicationPath + "/Commodity/ShoppingList").addClass("temp-form").css({
+				"display": "none"
+			});
 			$("#order-list").find("[type=text], [type=tel], select, textarea").each(function (index, element) {
 				var $element = $(element);
 				$("<input />").attr("name", $element.attr("name")).val($element.val()).appendTo($form);
@@ -99,6 +105,8 @@
 		});
 		DeliveryManner_on_input();
 		cart.Set$Sum();
+
+		$("#Man").focus();
 	};
 
 	$order_item_tbody.delegate(".delete", "click", function () {
@@ -141,7 +149,6 @@
 		$(".temp-form").remove();
 	    window.API.Commodities().Sync(initialize);
 	});
-
 
 	window.API.Commodities().Sync(initialize);
 });

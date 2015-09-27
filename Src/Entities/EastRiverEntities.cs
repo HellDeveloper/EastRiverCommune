@@ -113,6 +113,27 @@ namespace EastRiverCommune.Entities
 			return String.Empty;
 		}
 
+		/// <summary> 删除 禁用的商品
+		/// </summary>
+		/// <param name="orderListID"></param>
+		public int Reinitialize(string orderListID)
+		{
+			string sql =
+@"DELETE FROM OrderItem WHERE OrderListID = @p0
+AND EXISTS (SELECT * FROM Commodity WHERE ID = CommodityID AND [Enable] = 0) ";
+			int deleted = this.Database.ExecuteSqlCommand(sql, orderListID);
+			sql =
+@"UPDATE OrderItem SET 
+Price = (SELECT Price FROM Commodity WHERE Commodity.ID = CommodityID)
+WHERE OrderListID = @p0";
+			this.Database.ExecuteSqlCommand(sql, orderListID);
+			sql =
+@"UPDATE OrderItem SET 
+Total = Price * Count
+WHERE OrderListID = @p0";
+			this.Database.ExecuteSqlCommand(sql, orderListID);
+			return deleted;
+		}
 
 		/// <summary>
 		/// 核实、核对 OrderItem

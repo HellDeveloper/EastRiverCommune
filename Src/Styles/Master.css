@@ -1,4 +1,4 @@
-﻿body
+﻿html, body
 {
 	background-color: rgba(255, 215, 170, 1);
 }
@@ -90,7 +90,7 @@ body > aside
 	z-index: 1;
 }
 
-#menu-items
+/*#menu-items
 {
 	background-color: rgba(255, 255, 255, 1);
 	position: absolute;
@@ -120,6 +120,50 @@ body > aside
 	-webkit-flex: 1;
 	-moz-flex: 1;
 	flex: 1;
+}*/
+
+#menu-items
+{
+	background-color: rgba(255, 255, 255, 1);
+	position: absolute;
+	height: 100%;
+	width: 60%;
+	left: 40%;
+	text-align: center;
+}
+
+#menu-items > *
+{
+	display: inline-block;
+	width: 47%;
+	max-width: 80px;
+	min-width: 80px;
+	margin: 5px 1%;
+	background-color: red
+}
+
+#menu-items > * > *
+{
+	display: block;
+	width: 100%;
+	text-align: center;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#menu-items > * > .icomoon
+{
+	font-size: 24px;
+	padding: 10px;
+	color: white;
+}
+
+#menu-items > * > .text
+{
+	background-color: rgb(225, 225, 225);
+	padding: 5px;
+	font-size: 14px;
 }
 
 .aside-fade-in

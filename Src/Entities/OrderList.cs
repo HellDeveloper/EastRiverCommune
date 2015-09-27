@@ -28,6 +28,7 @@ namespace EastRiverCommune.Entities
         public string Phone { get; set; }
         public string Address { get; set; }
         public string Remark { get; set; }
+        public bool Paid { get; set; }
     
         public virtual ICollection<OrderItem> OrderItems { get; set; }
     }

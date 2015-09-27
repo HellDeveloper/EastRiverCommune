@@ -294,6 +294,8 @@
     <Content Include="Views\Main\Login.cshtml" />
     <Content Include="Views\Test\ShowParams.cshtml" />
     <Content Include="Views\WeChat\RedirectToWeChatOAuth.cshtml" />
+    <Content Include="Views\Commodity\ConfirmPay.cshtml" />
+    <Content Include="Views\Shared\_WindowOpen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

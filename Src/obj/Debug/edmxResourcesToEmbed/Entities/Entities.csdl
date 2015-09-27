@@ -135,6 +135,7 @@
     <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="OrderItems" Relationship="EastRiverCommune.Entities.FK_OrderItem_OrderList" FromRole="OrderList" ToRole="OrderItem" />
+    <Property Name="Paid" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="OrderItem">
     <Key>
@@ -146,9 +147,10 @@
     <Property Name="OrderListID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
     <Property Name="CommodityID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
     <Property Name="Count" Type="Int32" Nullable="false" />
-    <Property Name="Total" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Total" Type="Decimal" Precision="10" Scale="2" />
     <NavigationProperty Name="Commodity" Relationship="EastRiverCommune.Entities.FK_OrderItem_Commodity" FromRole="OrderItem" ToRole="Commodity" />
     <NavigationProperty Name="OrderList" Relationship="EastRiverCommune.Entities.FK_OrderItem_OrderList" FromRole="OrderItem" ToRole="OrderList" />
+    <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
   </EntityType>
   <Association Name="FK_OrderItem_Commodity">
     <End Type="EastRiverCommune.Entities.Commodity" Role="Commodity" Multiplicity="0..1" />
