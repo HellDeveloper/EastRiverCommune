@@ -1,0 +1,45 @@
+﻿@{
+	ViewBag.Title = "ShowParams";
+	Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+<div>
+	<table>
+		<tr>
+			<td>SessionID</td>
+			<td>@this.Session.SessionID</td>
+		</tr>
+	</table>
+</div>
+
+@if (this.Request.QueryString.AllKeys.Count() > 0)
+{
+	<h2>QueryString</h2>
+	<div>
+		<table>
+			@foreach (var key in this.Request.QueryString.AllKeys)
+			{
+				<tr>
+					<td>@key</td>
+					<td>@this.Request.QueryString[key]</td>
+				</tr>
+			}
+		</table>
+	</div>
+}
+
+@if (this.Request.Form.AllKeys.Count() > 0)
+{
+	<h2>Form</h2>
+	<div>
+		<table>
+			@foreach (var key in this.Request.Form.AllKeys)
+			{
+				<tr>
+					<td>@key</td>
+					<td>@this.Request.Form[key]</td>
+				</tr>
+			}
+		</table>
+	</div>
+}
